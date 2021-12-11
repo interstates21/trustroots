@@ -1,9 +1,10 @@
 import { FC } from 'react'
+import CirclesPage from './CirclesPage'
 
 const Circles: FC = () => {
     return (
       <div>
-        Circles
+        <CirclesPage user={null} onMembershipUpdated={()=>{}} />
       </div>
     )
 }
