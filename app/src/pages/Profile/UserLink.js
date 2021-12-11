@@ -24,5 +24,5 @@ export default function UserLink({ user, className }) {
 
 UserLink.propTypes = {
   className: PropTypes.string,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };

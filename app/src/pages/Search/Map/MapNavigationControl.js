@@ -6,14 +6,9 @@ import React from 'react';
 import './map-navigation-control.less';
 
 export default function MapNavigationControl() {
-
   return (
     <div className="map-navigation-control-container">
-      <NavigationControl
-        showCompass={false}
-        zoomInLabel={'Zoom in'}
-        zoomOutLabel={'Zoom out'}
-      />
+      <NavigationControl showCompass={false} zoomInLabel={'Zoom in'} zoomOutLabel={'Zoom out'} />
     </div>
   );
 }

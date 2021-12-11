@@ -9,14 +9,7 @@ import has from 'lodash/has';
  * @param {string=''} source - Leave empty to use user's selected source. Values "none", "facebook", "local", "gravatar".
  * @param {boolean=true} link - Include a link to user's profile. Defaults to true.
  */
-export default function Avatar({
-  user,
-  size = 256,
-  source = '',
-  link = true,
-  onClick,
-}) {
-
+export default function Avatar({ user, size = 256, source = '', link = true, onClick }) {
   source = source || user.avatarSource;
   const defaultAvatar = '/img/avatar.png';
 
@@ -25,9 +18,7 @@ export default function Avatar({
   const img = (
     <img
       className={`avatar avatar-${size} avatar-${source}`}
-      alt={
-        '' /* t('Profile picture of {{name}}', { name: user.displayName }) */
-      }
+      alt={'' /* t('Profile picture of {{name}}', { name: user.displayName }) */}
       aria-hidden="true"
       src={avatar}
       draggable="false"
@@ -55,7 +46,7 @@ Avatar.propTypes = {
   size: PropTypes.number,
   source: PropTypes.string,
   link: PropTypes.bool,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 /**
@@ -113,9 +104,7 @@ function gravatarUrl(user, size, defaultAvatar) {
 
   return (
     isValid &&
-    `https://gravatar.com/avatar/${
-      user.emailHash
-    }?s=${size}&d=${encodeURIComponent(fallbackImage)}`
+    `https://gravatar.com/avatar/${user.emailHash}?s=${size}&d=${encodeURIComponent(fallbackImage)}`
   );
 }
 

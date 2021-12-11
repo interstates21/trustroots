@@ -38,6 +38,6 @@ export default function createSubscribable() {
       if (errors.length > 0) {
         throw new Error('Errors! ' + errors.join(', '));
       }
-    },
+    }
   };
 }

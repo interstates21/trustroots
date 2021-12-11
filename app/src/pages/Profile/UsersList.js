@@ -17,7 +17,7 @@ const Container = styled.div`
 export default function UsersList({ users }) {
   return (
     <Container>
-      {users.map(user => (
+      {users.map((user) => (
         <UserSummary key={`user-${user.username}`} user={user} />
       ))}
     </Container>
@@ -25,5 +25,5 @@ export default function UsersList({ users }) {
 }
 
 UsersList.propTypes = {
-  users: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired
 };

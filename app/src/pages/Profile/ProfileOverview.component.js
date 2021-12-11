@@ -20,11 +20,7 @@ export default function ProfileOverview({ profile }) {
       {/* panel with avatar and basic info */}
       <div className="panel panel-default profile-overview">
         {/* avatar */}
-        <a
-          className="hidden-xs"
-          aria-hidden={true}
-          onClick={() => setIsAvatarModalOpen(true)}
-        >
+        <a className="hidden-xs" aria-hidden={true} onClick={() => setIsAvatarModalOpen(true)}>
           <Avatar user={profile} size={256} link={false} />
         </a>
 
@@ -37,11 +33,7 @@ export default function ProfileOverview({ profile }) {
       </div>
 
       {/* modal with avatar */}
-      <Modal
-        show={isAvatarModalOpen}
-        onHide={handleClose}
-        className="modal-avatar"
-      >
+      <Modal show={isAvatarModalOpen} onHide={handleClose} className="modal-avatar">
         <Avatar user={profile} size={512} link={false} onClick={handleClose} />
       </Modal>
     </>
@@ -49,5 +41,5 @@ export default function ProfileOverview({ profile }) {
 }
 
 ProfileOverview.propTypes = {
-  profile: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };

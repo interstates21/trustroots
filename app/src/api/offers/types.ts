@@ -1,25 +1,25 @@
 export type OffersData = {
   features: Feature[];
   type: string;
-}
+};
 
 export type Feature = {
   type: string;
   properties: OfferProperties;
   geometry: Geometry;
-}
+};
 
 export type Geometry = {
   coordinates: number[];
   type: string;
-}
+};
 
 export type OfferProperties = {
   id: string;
   status: string;
   type: string;
   offer: string;
-}
+};
 
 // Correct naming?
 export type Offer = {
@@ -33,8 +33,7 @@ export type Offer = {
   location: number[];
   updated: string;
   showOnlyInMyCircles: boolean;
-}
-
+};
 
 export type User = {
   tagline: string;
@@ -48,12 +47,12 @@ export type User = {
   member: Member[];
   birthdate: string;
   updated: string;
-}
+};
 
 export type Member = {
   since: string;
   tribe: Tribe;
-}
+};
 
 export type Tribe = {
   count: number;
@@ -66,4 +65,4 @@ export type Tribe = {
   created: string;
   attribution: string;
   attribution_url: string;
-}
+};

@@ -11,7 +11,7 @@ export default function LanguageList({ languages = [], className }) {
 
   return (
     <ul className={className}>
-      {languages.map(code => {
+      {languages.map((code) => {
         return (
           <li key={code}>
             {languageNames[code]
@@ -27,5 +27,5 @@ export default function LanguageList({ languages = [], className }) {
 
 LanguageList.propTypes = {
   className: PropTypes.string,
-  languages: PropTypes.array.isRequired,
+  languages: PropTypes.array.isRequired
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 
 export default function LeaveCircleModal({ tribe, show, onConfirm, onCancel }) {
-//   const { t } = useTranslation('circles');
+  //   const { t } = useTranslation('circles');
 
   return (
     <Modal show={show} onHide={onCancel}>
@@ -13,9 +13,7 @@ export default function LeaveCircleModal({ tribe, show, onConfirm, onCancel }) {
           <Modal.Title>{'Leave this circle?'}</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
-          {`Do you want to leave "${tribe.label}"?`}
-        </Modal.Body>
+        <Modal.Body>{`Do you want to leave "${tribe.label}"?`}</Modal.Body>
 
         <Modal.Footer>
           <button className="btn btn-primary" onClick={onConfirm}>
@@ -34,5 +32,5 @@ LeaveCircleModal.propTypes = {
   show: PropTypes.bool.isRequired,
   onConfirm: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-  tribe: PropTypes.object.isRequired,
+  tribe: PropTypes.object.isRequired
 };

@@ -6,18 +6,10 @@ import LeaveTribeModal from './LeaveCircleModal';
 import * as api from '../../api/circles/circles.api';
 import Tooltip from '../../components/Tooltip';
 
-function JoinButtonPresentational({
-  isMember,
-  isLoading,
-  tribe,
-  isLoggedIn,
-  onToggle,
-}) {
-//   const { t } = useTranslation('circles');
+function JoinButtonPresentational({ isMember, isLoading, tribe, isLoggedIn, onToggle }) {
+  //   const { t } = useTranslation('circles');
 
-  const ariaLabel = isMember
-    ? 'Leave circle'
-    : `Join ${tribe.label}`;
+  const ariaLabel = isMember ? 'Leave circle' : `Join ${tribe.label}`;
   const buttonLabel = isMember ? 'Joined' : 'Join';
 
   // a button to be shown when user is signed out
@@ -42,9 +34,7 @@ function JoinButtonPresentational({
     >
       <button
         type="button"
-        className={`${
-          isMember ? 'btn-active' : ''
-        } btn btn-sm btn-default tribe-join`}
+        className={`${isMember ? 'btn-active' : ''} btn btn-sm btn-default tribe-join`}
         disabled={isLoading}
         aria-label={ariaLabel}
         onClick={onToggle}
@@ -60,7 +50,7 @@ JoinButtonPresentational.propTypes = {
   isLoading: PropTypes.bool,
   isLoggedIn: PropTypes.bool.isRequired,
   tribe: PropTypes.object.isRequired,
-  onToggle: PropTypes.func,
+  onToggle: PropTypes.func
 };
 
 // @TODO this can (and should) be replaced by other container, when we finish the migration; when we start using redux etc.
@@ -90,14 +80,14 @@ export default function JoinButton({ tribe, user, onUpdated, ...rest }) {
       setIsUpdating(true);
 
       // join
- 
+
       // update the membership locally
       setIsMember(true);
 
       // updating finished
       setIsUpdating(false);
       // tell the ancestor components that the membership was updated
-    //   onUpdated(data);
+      //   onUpdated(data);
     }
   }
 
@@ -141,5 +131,5 @@ export default function JoinButton({ tribe, user, onUpdated, ...rest }) {
 JoinButton.propTypes = {
   tribe: PropTypes.object.isRequired,
   user: PropTypes.object,
-  onUpdated: PropTypes.func.isRequired,
+  onUpdated: PropTypes.func.isRequired
 };

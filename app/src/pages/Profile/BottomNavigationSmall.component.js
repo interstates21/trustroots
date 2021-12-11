@@ -8,16 +8,10 @@ import '@/config/client/i18n';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
-export default function BottomNavigationSmall({
-  username,
-  isSelf,
-  contactCount,
-}) {
+export default function BottomNavigationSmall({ username, isSelf, contactCount }) {
   // @TODO the default value for 'active' will need to be fetched in more React way
   // when we have a router in place
-  const [active, setActive] = useState(
-    window.location.pathname.split('/')[3] || 'about',
-  );
+  const [active, setActive] = useState(window.location.pathname.split('/')[3] || 'about');
 
   const { t } = useTranslation('users');
 
@@ -25,18 +19,18 @@ export default function BottomNavigationSmall({
     {
       key: 'overview',
       label: t('Overview'),
-      link: `/profile/${username}/overview`,
+      link: `/profile/${username}/overview`
     },
     {
       key: 'about',
       label: t('About'),
-      link: `/profile/${username}`,
+      link: `/profile/${username}`
     },
     {
       key: 'accommodation',
       label: t('Hosting'),
-      link: `/profile/${username}/accommodation`,
-    },
+      link: `/profile/${username}/accommodation`
+    }
   ];
 
   // contacts tab is shown only sometimes
@@ -45,15 +39,12 @@ export default function BottomNavigationSmall({
       key: 'contacts',
       label: t('Contacts'),
       link: `/profile/${username}/contacts`,
-      count: contactCount,
+      count: contactCount
     });
   }
 
   return (
-    <nav
-      className="navbar navbar-default navbar-fixed-bottom visible-xs-block"
-      role="navigation"
-    >
+    <nav className="navbar navbar-default navbar-fixed-bottom visible-xs-block" role="navigation">
       <div className="container">
         <ul className="nav navbar-nav" role="tablist">
           {tabs.map(({ key, label, link, count }) => (
@@ -77,5 +68,5 @@ export default function BottomNavigationSmall({
 BottomNavigationSmall.propTypes = {
   isSelf: PropTypes.bool.isRequired,
   contactCount: PropTypes.number.isRequired,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 };

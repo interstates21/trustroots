@@ -1,4 +1,4 @@
-import { canUseWebP } from "../../../utils/dom";
+import { canUseWebP } from '../../../utils/dom';
 
 /**
  * Return Circle background image URL

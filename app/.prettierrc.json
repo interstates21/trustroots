@@ -1,0 +1,26 @@
+{
+    "arrowParens": "always",
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "jsxSingleQuote": false,
+    "overrides": [
+      {
+        "files": "*.{ts,tsx,js,jsx}",
+        "options": {
+          "printWidth": 100
+        }
+      },
+      {
+        "files": "*.md",
+        "options": {
+          "proseWrap": "never"
+        }
+      }
+    ]
+  }
+  

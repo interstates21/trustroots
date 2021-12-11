@@ -8,7 +8,7 @@ import {
   getNetworkName,
   hasConnectedAdditionalSocialAccounts,
   isWarmshowersId,
-  socialAccountLink,
+  socialAccountLink
 } from '../utils/networks';
 import { getGender } from '@/modules/core/client/utils/user_info';
 import LanguageList from './LanguageList';
@@ -16,19 +16,16 @@ import LanguageList from './LanguageList';
 export default function ProfileViewBasics({ profile }) {
   const { t } = useTranslation(['users']);
 
-  const getBirthdate = birthdate =>
+  const getBirthdate = (birthdate) =>
     t('{{birthdate, age}} years.', { birthdate: new Date(birthdate) });
 
-  const getReplyRate = replyRate =>
-    t('Reply rate {{replyRate}}.', { replyRate });
+  const getReplyRate = (replyRate) => t('Reply rate {{replyRate}}.', { replyRate });
 
-  const getReplyTime = replyTime =>
-    t('Replies within {{replyTime, fromNow}}.', { replyTime });
+  const getReplyTime = (replyTime) => t('Replies within {{replyTime, fromNow}}.', { replyTime });
 
-  const getMemberSince = created =>
-    t('Member since {{date, ll}}', { date: new Date(created) });
+  const getMemberSince = (created) => t('Member since {{date, ll}}', { date: new Date(created) });
 
-  const getSeenOnline = seen => {
+  const getSeenOnline = (seen) => {
     if (seen) {
       return t('Online {{ date, fromNow }}', { date: new Date(seen) });
     }
@@ -59,28 +56,27 @@ export default function ProfileViewBasics({ profile }) {
     );
   };
 
-  const renderMemberSince = created => (
+  const renderMemberSince = (created) => (
     <div className="profile-sidebar-section">{getMemberSince(created)}</div>
   );
 
-  const renderSeenOnline = seen => (
+  const renderSeenOnline = (seen) => (
     <div className="profile-sidebar-section">
       <span>{getSeenOnline(seen)}</span>
     </div>
   );
 
-  const renderLocationLiving = locationLiving => (
+  const renderLocationLiving = (locationLiving) => (
     <div className="profile-sidebar-section">
       <i className="icon-fw icon-building text-muted" />
       {/* @TODO remove ns (issue #1368) */}
       <Trans t={t} ns="users">
-        Lives in{' '}
-        <a href={`/search?location=${locationLiving}`}>{{ locationLiving }}</a>
+        Lives in <a href={`/search?location=${locationLiving}`}>{{ locationLiving }}</a>
       </Trans>
     </div>
   );
 
-  const renderLocationFrom = locationFrom => (
+  const renderLocationFrom = (locationFrom) => (
     <div className="profile-sidebar-section">
       <i className="icon-fw icon-home text-muted"></i>
       {/* @TODO remove ns (issue #1368) */}
@@ -90,42 +86,34 @@ export default function ProfileViewBasics({ profile }) {
     </div>
   );
 
-  const renderLanguages = languages => (
+  const renderLanguages = (languages) => (
     <div className="profile-sidebar-section">
       <h4>{t('Languages')}</h4>
       <LanguageList className="list-unstyled" languages={languages} />
     </div>
   );
 
-  const renderSocialNetworks = profile => (
+  const renderSocialNetworks = (profile) => (
     <div className="profile-sidebar-section">
       <h4 id="profile-networks" aria-label="Member in other networks">
         {t('Elsewhere')}
       </h4>
-      <ul
-        className="social-profiles list-unstyled"
-        aria-describedby="profile-networks"
-      >
+      <ul className="social-profiles list-unstyled" aria-describedby="profile-networks">
         {/*
           Facebook profile link is hidden here until issue with their API gets resolved
           See https://github.com/Trustroots/trustroots/issues/237
         */}
         {/* facebook, github, twitter*/}
         {profile.additionalProvidersData &&
-          Object.keys(profile.additionalProvidersData).map(network => {
+          Object.keys(profile.additionalProvidersData).map((network) => {
             return (
               network !== 'facebook' && (
                 <li className="social-profile" key={network}>
-                  <i
-                    className={`social-profile-icon icon-fw icon-lg icon-${network}`}
-                  />
+                  <i className={`social-profile-icon icon-fw icon-lg icon-${network}`} />
                   <a
                     rel="noopener"
                     className="social-profile-handle"
-                    href={socialAccountLink(
-                      network,
-                      profile.additionalProvidersData[network],
-                    )}
+                    href={socialAccountLink(network, profile.additionalProvidersData[network])}
                   >
                     {getNetworkName(network)}
                   </a>
@@ -227,5 +215,5 @@ export default function ProfileViewBasics({ profile }) {
 }
 
 ProfileViewBasics.propTypes = {
-  profile: PropTypes.object,
+  profile: PropTypes.object
 };

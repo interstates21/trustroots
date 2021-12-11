@@ -9,7 +9,7 @@ import JoinButton from './JoinButton';
 import { getCircleBackgroundStyle } from './utils';
 
 const Container = styled.div.attrs({
-  className: 'panel tribe tribe-image',
+  className: 'panel tribe tribe-image'
 })`
   // the following styles should have high specificity
   // https://www.styled-components.com/docs/faqs#how-can-i-override-styles-with-higher-specificity
@@ -20,16 +20,13 @@ const Container = styled.div.attrs({
 `;
 
 export default function Circle({ tribe, user, onMembershipUpdated }) {
-//   const { t } = useTranslation('circles');
+  //   const { t } = useTranslation('circles');
 
-//   const countInfo =
-//     tribe.count === 0
-//       ? t('No members yet')
-//       : t('{{count, number}} members', { count: tribe.count });
-    const countInfo =
-        tribe.count === 0
-            ? 'No members yet'
-            : `${tribe.count} members`;
+  //   const countInfo =
+  //     tribe.count === 0
+  //       ? t('No members yet')
+  //       : t('{{count, number}} members', { count: tribe.count });
+  const countInfo = tribe.count === 0 ? 'No members yet' : `${tribe.count} members`;
 
   return (
     <Container tribe={tribe}>
@@ -41,7 +38,7 @@ export default function Circle({ tribe, user, onMembershipUpdated }) {
         )}
         <div
           className={classnames('tribe-content', {
-            'is-image': tribe.image,
+            'is-image': tribe.image
           })}
         >
           <h3 className="font-brand-light tribe-label">{tribe.label}</h3>
@@ -50,12 +47,7 @@ export default function Circle({ tribe, user, onMembershipUpdated }) {
       </a>
       <div className="tribe-actions">
         {tribe && (
-          <JoinButton
-            tribe={tribe}
-            user={user}
-            icon={true}
-            onUpdated={onMembershipUpdated}
-          />
+          <JoinButton tribe={tribe} user={user} icon={true} onUpdated={onMembershipUpdated} />
         )}
       </div>
     </Container>
@@ -65,5 +57,5 @@ export default function Circle({ tribe, user, onMembershipUpdated }) {
 Circle.propTypes = {
   tribe: PropTypes.object.isRequired,
   user: PropTypes.object,
-  onMembershipUpdated: PropTypes.func.isRequired,
+  onMembershipUpdated: PropTypes.func.isRequired
 };

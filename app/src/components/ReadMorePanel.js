@@ -23,7 +23,7 @@ export default function ReadMorePanel({ content, id }) {
       <div
         className="panel-more-wrap"
         dangerouslySetInnerHTML={{
-          __html: `${plainText(content).substr(0, LIMIT)} …`,
+          __html: `${plainText(content).substr(0, LIMIT)} …`
         }}
         id={id}
         onClick={() => setShowMore(true)}
@@ -43,5 +43,5 @@ export default function ReadMorePanel({ content, id }) {
 
 ReadMorePanel.propTypes = {
   content: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };

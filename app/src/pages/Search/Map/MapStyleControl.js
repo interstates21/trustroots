@@ -9,7 +9,7 @@ import {
   MAP_STYLE_MAPBOX_STREETS,
   MAP_STYLE_MAPBOX_SATELLITE,
   MAP_STYLE_MAPBOX_OUTDOORS,
-  MAP_STYLE_OSM,
+  MAP_STYLE_OSM
 } from './lib/constants';
 import { getMapBoxToken } from '../../utils/map';
 import MapIcon from './MapIcon';
@@ -22,7 +22,7 @@ class MapStyleControl extends BaseControl {
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.state = {
-      isOpen: false,
+      isOpen: false
     };
   }
 
@@ -59,39 +59,29 @@ class MapStyleControl extends BaseControl {
             onMouseEnter={() => !this._context.isDragging && this.open()}
             aria-label={t('Change map style')}
           >
-            <MapIcon
-              mapboxStyle={
-                selectedStyle !== MAP_STYLE_OSM.name ? selectedStyle : ''
-              }
-            />
+            <MapIcon mapboxStyle={selectedStyle !== MAP_STYLE_OSM.name ? selectedStyle : ''} />
             {mapStyle?.name || mapboxStyleNames[mapStyle]}
           </button>
         )}
         {isOpen && (
-          <div
-            className="btn-group-vertical"
-            onMouseLeave={this.close}
-            role="group"
-          >
-            {[
-              MAP_STYLE_MAPBOX_STREETS,
-              MAP_STYLE_MAPBOX_OUTDOORS,
-              MAP_STYLE_MAPBOX_SATELLITE,
-            ].map(mapboxStyle => (
-              <MapStyleButton
-                disabled={!MAPBOX_TOKEN}
-                key={mapboxStyle}
-                label={mapboxStyleNames[mapboxStyle]}
-                onClick={() => {
-                  this.close();
-                  setMapstyle(mapboxStyle);
-                }}
-                selectedStyle={selectedStyle}
-                style={mapboxStyle}
-                styleName={mapboxStyle}
-                iconStyle={mapboxStyle}
-              />
-            ))}
+          <div className="btn-group-vertical" onMouseLeave={this.close} role="group">
+            {[MAP_STYLE_MAPBOX_STREETS, MAP_STYLE_MAPBOX_OUTDOORS, MAP_STYLE_MAPBOX_SATELLITE].map(
+              (mapboxStyle) => (
+                <MapStyleButton
+                  disabled={!MAPBOX_TOKEN}
+                  key={mapboxStyle}
+                  label={mapboxStyleNames[mapboxStyle]}
+                  onClick={() => {
+                    this.close();
+                    setMapstyle(mapboxStyle);
+                  }}
+                  selectedStyle={selectedStyle}
+                  style={mapboxStyle}
+                  styleName={mapboxStyle}
+                  iconStyle={mapboxStyle}
+                />
+              )
+            )}
             {process.env.NODE_ENV !== 'production' && (
               <MapStyleButton
                 label={MAP_STYLE_OSM.name}
@@ -112,9 +102,8 @@ class MapStyleControl extends BaseControl {
 }
 
 MapStyleControl.propTypes = {
-  mapStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-    .isRequired,
-  setMapstyle: PropTypes.func.isRequired,
+  mapStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+  setMapstyle: PropTypes.func.isRequired
 };
 
 export default withTranslation(['core'])(MapStyleControl);

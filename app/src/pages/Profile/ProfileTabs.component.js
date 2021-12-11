@@ -15,7 +15,7 @@ export default function ProfileTabs({
   isExperiencesEnabled,
   isOWnProfile,
   userId,
-  username,
+  username
 }) {
   const { t } = useTranslation('users');
   const [experiencesCount, setExperiencesCount] = useState(0);
@@ -38,18 +38,15 @@ export default function ProfileTabs({
       $on('$stateChangeSuccess', (event, { name }) => {
         setPathName(name);
       }),
-    [],
+    []
   );
 
   return (
     <div className="profile-tabs hidden-xs" role="navigation">
-      <ul
-        className="nav panel panel-default nav-pills nav-narrow nav-underline"
-        role="tablist"
-      >
+      <ul className="nav panel panel-default nav-pills nav-narrow nav-underline" role="tablist">
         <li
           className={classnames({
-            active: pathName === 'profile.about',
+            active: pathName === 'profile.about'
           })}
           role="presentation"
         >
@@ -60,13 +57,13 @@ export default function ProfileTabs({
         {(contactsCount || isOWnProfile) && (
           <li
             className={classnames({
-              active: pathName === 'profile.contacts',
+              active: pathName === 'profile.contacts'
             })}
             role="presentation"
           >
             <a
               aria-label={t('{{count}} contacts', {
-                count: contactsCount,
+                count: contactsCount
               })}
               href={`/profile/${username}/contacts`}
               role="tab"
@@ -79,21 +76,19 @@ export default function ProfileTabs({
         {isExperiencesEnabled && (experiencesCount >= 0 || isOWnProfile) && (
           <li
             className={classnames({
-              active: pathName === 'profile.experiences.list',
+              active: pathName === 'profile.experiences.list'
             })}
             role="presentation"
           >
             <a
               aria-label={t('{{count}} experiences', {
-                count: experiencesCount,
+                count: experiencesCount
               })}
               href={`/profile/${username}/experiences`}
               role="tab"
             >
               {t('Experiences')}
-              <Badge withNotification={hasPendingExperiences}>
-                {experiencesCount}
-              </Badge>
+              <Badge withNotification={hasPendingExperiences}>{experiencesCount}</Badge>
             </a>
           </li>
         )}
@@ -108,5 +103,5 @@ ProfileTabs.propTypes = {
   isExperiencesEnabled: PropTypes.bool.isRequired,
   isOWnProfile: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired
 };

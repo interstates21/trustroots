@@ -2,7 +2,7 @@ import React from 'react';
 // import { useTranslation } from 'react-i18next';
 
 export default function SuggestCircle() {
-//   const { t } = useTranslation('circles');
+  //   const { t } = useTranslation('circles');
 
   return (
     <div className="panel tribe text-center flex-centered">

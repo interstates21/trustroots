@@ -9,7 +9,6 @@ import React from 'react';
 import ReportMember from '@/modules/support/client/components/ReportMember.component.js'; */
 
 export default function BlockedMemberBanner({ username }) {
-
   return (
     <div className="alert alert-warning" role="alert">
       <p>
@@ -22,5 +21,5 @@ export default function BlockedMemberBanner({ username }) {
 }
 
 BlockedMemberBanner.propTypes = {
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 };

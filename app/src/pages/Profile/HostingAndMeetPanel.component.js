@@ -20,21 +20,13 @@ export default function HostingAndMeetPanel() {
       <div className="panel-body">
         <div className="form-horizontal">
           <p>
-            <a
-              role="button"
-              href="/offer/host"
-              className="btn btn-inverse-primary"
-            >
+            <a role="button" href="/offer/host" className="btn btn-inverse-primary">
               <SofaIcon icon="sofa" />
               {t('Modify your hosting location')}
             </a>
           </p>
           <p>
-            <a
-              role="button"
-              href="/offer/meet"
-              className="btn btn-inverse-primary"
-            >
+            <a role="button" href="/offer/meet" className="btn btn-inverse-primary">
               <Icon icon="users" />
               {t('Modify your meet locations')}
             </a>

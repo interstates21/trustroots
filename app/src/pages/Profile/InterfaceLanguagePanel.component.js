@@ -13,9 +13,7 @@ export default function InterfaceLanguagePanel() {
         <form>
           <div className="form-horizontal">
             <div className="form-group">
-              <label className="col-sm-3 text-right control-label">
-                {t('Change language')}
-              </label>
+              <label className="col-sm-3 text-right control-label">{t('Change language')}</label>
               <div className="col-sm-9">
                 <div className="form-group">
                   <div className="col-sm-9 col-md-7 col-lg-6">
@@ -24,14 +22,10 @@ export default function InterfaceLanguagePanel() {
                 </div>
 
                 <p className="help-block">
-                  {t(
-                    'This is the language of the interface you see across the site.',
-                  )}
+                  {t('This is the language of the interface you see across the site.')}
                 </p>
                 <p className="help-block">
-                  {t(
-                    'Thanks to all our community members who helped translate!',
-                  )}{' '}
+                  {t('Thanks to all our community members who helped translate!')}{' '}
                   <a href="/volunteering">{t('You can help us out!')}</a>
                 </p>
               </div>

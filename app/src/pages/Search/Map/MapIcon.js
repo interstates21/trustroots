@@ -21,17 +21,10 @@ export default function MapIcon({ mapboxStyle }) {
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNc8mTSfwAHaQMbL4UQfQAAAABJRU5ErkJggg==';
 
   return (
-    <img
-      className="img-circle"
-      alt=""
-      aria-hidden="true"
-      width="24"
-      height="24"
-      src={image}
-    />
+    <img className="img-circle" alt="" aria-hidden="true" width="24" height="24" src={image} />
   );
 }
 
 MapIcon.propTypes = {
-  mapboxStyle: PropTypes.string,
+  mapboxStyle: PropTypes.string
 };

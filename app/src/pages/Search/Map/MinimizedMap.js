@@ -21,7 +21,7 @@ export default function Map(props) {
   const [viewport, setViewport] = useState({
     latitude: location[0],
     longitude: location[1],
-    zoom,
+    zoom
   });
   const MAPBOX_TOKEN = getMapBoxToken();
 
@@ -50,5 +50,5 @@ Map.propTypes = {
   children: PropTypes.node,
   location: PropTypes.arrayOf(PropTypes.number),
   showMapStyles: PropTypes.bool,
-  zoom: PropTypes.number,
+  zoom: PropTypes.number
 };

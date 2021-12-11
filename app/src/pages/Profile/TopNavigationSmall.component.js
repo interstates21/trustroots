@@ -10,7 +10,7 @@ export default function TopNavigationSmall({
   isResolved,
   selfId,
   userId,
-  onContactRemoved,
+  onContactRemoved
 }) {
   // @TODO this hacky fix should be removed and the data should be consistent
   if (contact) {
@@ -34,23 +34,23 @@ export default function TopNavigationSmall({
       {
         id: 'edit-profile',
         label: t('Edit your profile'),
-        link: '/profile/edit',
-      },
+        link: '/profile/edit'
+      }
     ];
   } else {
     links = [
       {
         id: 'send-message',
         label: t('Send a message'),
-        link: `/messages/${username}`,
-      },
+        link: `/messages/${username}`
+      }
     ];
 
     if (referencesEnabled) {
       links.push({
         id: 'share-experience',
         label: t('Share your experience'),
-        link: `/profile/${username}/experiences/new`,
+        link: `/profile/${username}/experiences/new`
       });
     }
 
@@ -59,18 +59,18 @@ export default function TopNavigationSmall({
         ? {
             id: 'add-contact',
             label: t('Add contact'),
-            link: `/contact-add/${userId}`,
+            link: `/contact-add/${userId}`
           }
         : contact.confirmed
         ? {
             id: 'remove-contact',
             label: t('Remove contact'),
-            onClick: () => setShowRemoveModal(true),
+            onClick: () => setShowRemoveModal(true)
           }
         : {
             id: 'delete-contact-request',
             label: t('Delete contact request'),
-            onClick: () => setShowRemoveModal(true),
+            onClick: () => setShowRemoveModal(true)
           };
 
       links.push(contactLink);
@@ -119,5 +119,5 @@ TopNavigationSmall.propTypes = {
   contact: PropTypes.object,
   referencesEnabled: PropTypes.bool.isRequired,
   isResolved: PropTypes.bool.isRequired,
-  onContactRemoved: PropTypes.func.isRequired,
+  onContactRemoved: PropTypes.func.isRequired
 };

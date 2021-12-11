@@ -1,5 +1,5 @@
 //import axios from 'axios';
-import userData from './user.json'
+import userData from './user.json';
 
 /**
  * API request: update user

@@ -1,12 +1,12 @@
-import { FC } from 'react'
-import CirclesPage from './CirclesPage'
+import { FC } from 'react';
+import CirclesPage from './CirclesPage';
 
 const Circles: FC = () => {
-    return (
-      <div>
-        <CirclesPage user={null} onMembershipUpdated={()=>{}} />
-      </div>
-    )
-}
+  return (
+    <div>
+      <CirclesPage user={null} onMembershipUpdated={() => {}} />
+    </div>
+  );
+};
 
-export default Circles
+export default Circles;

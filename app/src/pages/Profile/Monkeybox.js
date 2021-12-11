@@ -16,12 +16,10 @@ function TribesInCommon({ user, otherUser }) {
   useEffect(() => {
     // user will have a filled out tribe details, otherUser won't...
     const byId = keyBy(
-      user.member.map(membership => membership.tribe),
-      tribe => tribe._id,
+      user.member.map((membership) => membership.tribe),
+      (tribe) => tribe._id
     );
-    const tribesInCommon = otherUser.memberIds
-      .filter(id => byId[id])
-      .map(id => byId[id]);
+    const tribesInCommon = otherUser.memberIds.filter((id) => byId[id]).map((id) => byId[id]);
     setTribesInCommon(tribesInCommon);
   }, [user, otherUser]);
 
@@ -32,7 +30,7 @@ function TribesInCommon({ user, otherUser }) {
       <div className="tribes-common">
         <h4>{t('Circles in common')}</h4>
         <ul className="list-inline">
-          {tribesInCommon.map(tribe => (
+          {tribesInCommon.map((tribe) => (
             <li key={tribe._id}>
               <a className="tribe-link" href={`/circles/${tribe.slug}`}>
                 {tribe.label}
@@ -47,7 +45,7 @@ function TribesInCommon({ user, otherUser }) {
 
 TribesInCommon.propTypes = {
   user: userType.isRequired,
-  otherUser: userType.isRequired,
+  otherUser: userType.isRequired
 };
 
 export default function Monkeybox({ user, otherUser }) {
@@ -63,10 +61,7 @@ export default function Monkeybox({ user, otherUser }) {
         {user.languages.length > 0 && (
           <div className="monkeybox-section">
             <h4>{t('Languages')}</h4>
-            <LanguageList
-              className="list-unstyled"
-              languages={user.languages}
-            />
+            <LanguageList className="list-unstyled" languages={user.languages} />
           </div>
         )}
       </div>
@@ -76,5 +71,5 @@ export default function Monkeybox({ user, otherUser }) {
 
 Monkeybox.propTypes = {
   user: userType.isRequired,
-  otherUser: userType.isRequired,
+  otherUser: userType.isRequired
 };

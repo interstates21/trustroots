@@ -12,14 +12,12 @@
  * @param {Object.<string, any>} valueDict - dictionary of values
  * @returns {Object.<string, any[]>} - dictionary of array of errors
  */
-export const createValidator = ruleDict => valueDict => {
+export const createValidator = (ruleDict) => (valueDict) => {
   const entries = Object.entries(valueDict);
 
   const outputEntries = entries.map(([name, value]) => {
     const rules = ruleDict[name] ?? [];
-    const errors = rules
-      .filter(([rule]) => !rule(value, valueDict))
-      .map(([, error]) => error);
+    const errors = rules.filter(([rule]) => !rule(value, valueDict)).map(([, error]) => error);
     return [name, errors];
   });
 

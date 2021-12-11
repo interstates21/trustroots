@@ -11,4 +11,4 @@ export type Circle = {
   attribution_url: string;
   new: boolean;
   id: string;
-}
+};

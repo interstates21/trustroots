@@ -47,7 +47,7 @@ export default function SearchUsers() {
     <form
       className="form-group search-form-group"
       id="search-users-form"
-      onSubmit={event => {
+      onSubmit={(event) => {
         event.preventDefault();
         fetchUsers(searchQuery);
       }}

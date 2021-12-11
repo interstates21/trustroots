@@ -1,14 +1,14 @@
-import offersData from './offers.json'
-import offerData from './offer.json'
-import  { Offer, OffersData } from './types'
+import offersData from './offers.json';
+import offerData from './offer.json';
+import { Offer, OffersData } from './types';
 
 /**
  * API request: read user's offers
  * @param {int} userId - id of user
  * @returns Promise<Offer[]> - array of the found offers
  */
-export async function getOffers(_userId: string, _types: any ): Promise<OffersData> {
-    return offersData
+export async function getOffers(_userId: string, _types: any): Promise<OffersData> {
+  return offersData;
 }
 
 /**
@@ -26,5 +26,5 @@ export async function getOffer(_offerId: string): Promise<Offer> {
  * @returns Promise<Offer[]> - array of the found offers with limited info, mainly offer id and type.
  */
 export async function queryOffers(_query = {}): Promise<OffersData> {
-    return offersData
+  return offersData;
 }

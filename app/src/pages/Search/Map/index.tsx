@@ -1,5 +1,5 @@
 // External dependencies
-import React, {createRef, FC} from 'react'
+import React, { createRef, FC } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useEffect, useState } from 'react';
 import ReactMapGL, {
@@ -7,8 +7,8 @@ import ReactMapGL, {
   Layer,
   MapEvent,
   MapRef,
-  Source ,
-  WebMercatorViewport,
+  Source,
+  WebMercatorViewport
 } from 'react-map-gl';
 
 // Internal dependencies
@@ -16,7 +16,9 @@ import { getMapBoxToken } from './lib/getMapBoxToken';
 import {
   MAP_STYLE_DEFAULT,
   MAP_STYLE_OSM,
-  CLUSTER_MAX_ZOOM, MIN_ZOOM, SOURCE_OFFERS 
+  CLUSTER_MAX_ZOOM,
+  MIN_ZOOM,
+  SOURCE_OFFERS
 } from './lib/constants';
 import { DEFAULT_LOCATION } from './lib/constants';
 import MapNavigationControl from './MapNavigationControl';
@@ -29,7 +31,7 @@ import {
   clusterCountLayerMapbox,
   clusterCountLayerOSM,
   clusterLayer,
-  unclusteredPointLayer,
+  unclusteredPointLayer
 } from './lib/layers';
 
 import { getOffer, queryOffers } from '../../../api/offers/offers.api';
@@ -37,37 +39,39 @@ import { getOffer, queryOffers } from '../../../api/offers/offers.api';
 import usePersistentMapLocation from './lib/use-persisted-map-location';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-import {Location, LocationBounds, LocationBoundsParams, WebMercatorViewportOptions} from './lib/types'
+import {
+  Location,
+  LocationBounds,
+  LocationBoundsParams,
+  WebMercatorViewportOptions
+} from './lib/types';
 import { Offer } from '../../../api/offers/types';
 
-
-interface Props { 
+interface Props {
   filters: string;
   isUserPublic: boolean;
   location?: Location;
   locationBounds?: LocationBounds;
   onOfferClose: () => void;
   onOfferOpen: (offer?: Offer) => void;
-  
 }
 
-const SearchMap:FC<Props> = ({
+const SearchMap: FC<Props> = ({
   filters,
   isUserPublic,
   location,
   locationBounds: bounds,
   onOfferClose,
-  onOfferOpen,
+  onOfferOpen
 }) => {
   /**
    * Store map location in browser cache
    */
-  const [persistentMapLocation, setPersistentMapLocation] =
-    usePersistentMapLocation({
-      latitude: DEFAULT_LOCATION.lat,
-      longitude: DEFAULT_LOCATION.lng,
-      zoom: DEFAULT_LOCATION.zoom,
-    });
+  const [persistentMapLocation, setPersistentMapLocation] = usePersistentMapLocation({
+    latitude: DEFAULT_LOCATION.lat,
+    longitude: DEFAULT_LOCATION.lng,
+    zoom: DEFAULT_LOCATION.zoom
+  });
 
   /**
    * Debounce setting persistent map state to avoid performance issues
@@ -77,25 +81,24 @@ const SearchMap:FC<Props> = ({
     // delay in ms
     1000,
     // The maximum time func is allowed to be delayed before it's invoked:
-    { maxWait: 3000 },
+    { maxWait: 3000 }
   );
 
   const [viewport, setViewport] = useState<WebMercatorViewportOptions>(persistentMapLocation);
-  const mapStyle = MAP_STYLE_DEFAULT
+  const mapStyle = MAP_STYLE_DEFAULT;
   const [map, setMap] = useState();
   const [hoveredOffer, setHoveredOffer] = useState<any>(false); // FIXTYPE
   const [selectedOffer, setSelectedOffer] = useState(false);
   const [offers, setOffers] = useState<any>({
     features: [],
-    type: 'FeatureCollection',
+    type: 'FeatureCollection'
   }); // Fixme add type
-
 
   const MAPBOX_TOKEN = getMapBoxToken();
   // If no mapbox token, and we're in production, don't show the style switcher
   const sourceRef = createRef<any>();
 
-  const mapRef = createRef<MapRef>()
+  const mapRef = createRef<MapRef>();
 
   // Get the Mapbox object for direct map manipulation
   const getMapRef = () => map || mapRef?.current?.getMap();
@@ -103,24 +106,24 @@ const SearchMap:FC<Props> = ({
   /**
    * Zoom visible map to bounding box
    *
-  */ 
+   */
   const zoomToBounds = ({ northEast, southWest }: LocationBounds) => {
     const newViewport = new WebMercatorViewport(viewport);
     const { longitude, latitude, zoom } = newViewport.fitBounds(
       [
         [northEast.lng, northEast.lat],
-        [southWest.lng, southWest.lat],
+        [southWest.lng, southWest.lat]
       ],
       {
-        padding: 40,
-      },
+        padding: 40
+      }
     );
 
     setViewport({
       ...viewport,
       longitude,
       latitude,
-      zoom,
+      zoom
     });
   };
 
@@ -129,8 +132,8 @@ const SearchMap:FC<Props> = ({
    */
   const updateOffers = () => {
     if (!viewport?.zoom) {
-      console.warn("Viewport zoom is undefined")
-      return ;
+      console.warn('Viewport zoom is undefined');
+      return;
     }
     // Don't fetch if viewing the whole world
     if (viewport.zoom <= MIN_ZOOM) {
@@ -163,7 +166,7 @@ const SearchMap:FC<Props> = ({
       northEastLat,
       northEastLng,
       southWestLat,
-      southWestLng,
+      southWestLng
     });
   };
 
@@ -185,18 +188,19 @@ const SearchMap:FC<Props> = ({
     // delay in ms
     500,
     // The maximum time func is allowed to be delayed before it's invoked:
-    { maxWait: 3500 },
+    { maxWait: 3500 }
   );
 
   /**
    * Update state for a feature on the map
    */
-  const updateFeatureState = (feature: any, newState: any) => { // FIXTYPE
+  const updateFeatureState = (feature: any, newState: any) => {
+    // FIXTYPE
     const map = getMapRef();
     const { source, id } = feature;
     const previousState = map.getFeatureState({
       source,
-      id,
+      id
     });
 
     map.setFeatureState(
@@ -204,8 +208,8 @@ const SearchMap:FC<Props> = ({
       {
         ...previousState,
         // New state merges into previous state, overriding only defined keys
-        ...newState,
-      },
+        ...newState
+      }
     );
   };
 
@@ -232,7 +236,8 @@ const SearchMap:FC<Props> = ({
   /**
    * Set selected state for a feature
    */
-  const setSelectedState = (offer: any) => { // FIXTYPE
+  const setSelectedState = (offer: any) => {
+    // FIXTYPE
     // Clear out previously selected offers
     if (selectedOffer) {
       updateFeatureState(selectedOffer, { selected: false });
@@ -276,7 +281,8 @@ const SearchMap:FC<Props> = ({
    * Zoom to cluster of features
    * @link https://github.com/visgl/react-map-gl/blob/5.2-release/examples/zoom-to-bounds/src/app.js
    */
-  const zoomToCluster = (cluster: any) => { // FIXTYPE
+  const zoomToCluster = (cluster: any) => {
+    // FIXTYPE
     const clusterId = cluster?.properties?.cluster_id;
 
     if (!clusterId) {
@@ -287,7 +293,7 @@ const SearchMap:FC<Props> = ({
       latitude: cluster.geometry.coordinates[1],
       longitude: cluster.geometry.coordinates[0],
       transitionDuration: 'auto',
-      transitionInterpolator: new FlyToInterpolator({ speed: 3.0 }),
+      transitionInterpolator: new FlyToInterpolator({ speed: 3.0 })
     };
 
     const source = sourceRef?.current?.getSource();
@@ -296,13 +302,14 @@ const SearchMap:FC<Props> = ({
       // @TODO: sometimes source doesn't return map. At least center the group if no zooming — not ideal, should just re-attempt.
       setViewport({
         ...viewport,
-        ...newLocation,
+        ...newLocation
       });
 
       return;
     }
 
-    source.getClusterExpansionZoom(clusterId, (err: any, zoom: number) => { // FIXTYPE
+    source.getClusterExpansionZoom(clusterId, (err: any, zoom: number) => {
+      // FIXTYPE
       if (err || zoom === undefined) {
         return;
       }
@@ -311,7 +318,7 @@ const SearchMap:FC<Props> = ({
       setViewport({
         ...viewport,
         ...newLocation,
-        zoom: Math.min(zoom + 1, CLUSTER_MAX_ZOOM),
+        zoom: Math.min(zoom + 1, CLUSTER_MAX_ZOOM)
       });
     });
   };
@@ -345,8 +352,7 @@ const SearchMap:FC<Props> = ({
         zoomToCluster(features[0]);
         break;
 
-        default:
-
+      default:
     }
   };
 
@@ -379,7 +385,7 @@ const SearchMap:FC<Props> = ({
       // @TODO: cancellation when need to re-fetch
       const data = await queryOffers({
         filters,
-        ...boundingBox,
+        ...boundingBox
       });
       setOffers(data);
     } catch {
@@ -426,7 +432,7 @@ const SearchMap:FC<Props> = ({
         ...viewport,
         latitude: location.lat,
         longitude: location.lng,
-        zoom: location?.zoom || DEFAULT_LOCATION.zoom,
+        zoom: location?.zoom || DEFAULT_LOCATION.zoom
       });
     }
   }, [location]);
@@ -436,19 +442,18 @@ const SearchMap:FC<Props> = ({
       className="search-map"
       dragRotate={false}
       /*
-      * Pointer event callbacks will only query the features under the pointer
-      * of `interactiveLayerIds` layers. The getCursor callback will receive
-      * `isHovering:true` when hover over features of these layers.
-      *
-      * https://visgl.github.io/react-map-gl/docs/api-reference/interactive-map#interactivelayerids
-      */
-     interactiveLayerIds={[clusterLayer.id, unclusteredPointLayer.id]}
-     
+       * Pointer event callbacks will only query the features under the pointer
+       * of `interactiveLayerIds` layers. The getCursor callback will receive
+       * `isHovering:true` when hover over features of these layers.
+       *
+       * https://visgl.github.io/react-map-gl/docs/api-reference/interactive-map#interactivelayerids
+       */
+      interactiveLayerIds={[clusterLayer.id, unclusteredPointLayer.id]}
       // location={[
       //   persistentMapLocation?.latitude ?? DEFAULT_LOCATION.lat,
       //   persistentMapLocation?.longitude ?? DEFAULT_LOCATION.lng,
       // ]} FIXME DEFAULT MAP locaiton
-    
+
       mapboxApiAccessToken={MAPBOX_TOKEN}
       mapStyle={mapStyle}
       onClick={onClickMap}
@@ -479,17 +484,17 @@ const SearchMap:FC<Props> = ({
         type="geojson"
         // clusterMinPoints={3}
       >
-        <Layer {...clusterLayer as any} />
+        <Layer {...(clusterLayer as any)} />
         {/* OSM and Mapbox use different fonts for cluster numbers */}
         {mapStyle === MAP_STYLE_OSM ? (
-          <Layer {...clusterCountLayerOSM as any} />
+          <Layer {...(clusterCountLayerOSM as any)} />
         ) : (
-          <Layer {...clusterCountLayerMapbox as any} />
+          <Layer {...(clusterCountLayerMapbox as any)} />
         )}
-        <Layer {...unclusteredPointLayer as any} />
+        <Layer {...(unclusteredPointLayer as any)} />
       </Source>
     </ReactMapGL>
   );
-}
+};
 
-export default SearchMap
+export default SearchMap;

@@ -10,7 +10,7 @@ import * as api from '../../api/circles/circles.api';
 export default function CirclesPage({ user, onMembershipUpdated }) {
   const [tribes, setTribes] = useState([]);
 
-  const handleMembershipUpdated = data => {
+  const handleMembershipUpdated = (data) => {
     // update the tribes in state
 
     /**
@@ -20,8 +20,8 @@ export default function CirclesPage({ user, onMembershipUpdated }) {
      * @TODO extract the mapReplace method to be reusable
      * https://github.com/Trustroots/trustroots/pull/1145#discussion_r368321566
      */
-    setTribes(tribes =>
-      tribes.map(tribe => (tribe._id === data.tribe._id ? data.tribe : tribe)),
+    setTribes((tribes) =>
+      tribes.map((tribe) => (tribe._id === data.tribe._id ? data.tribe : tribe))
     );
 
     onMembershipUpdated(data);
@@ -43,11 +43,7 @@ export default function CirclesPage({ user, onMembershipUpdated }) {
       <section className="container container-spacer">
         <div className="row">
           <div className="col-xs-12">
-            <TribesList
-              tribes={tribes}
-              user={user}
-              onMembershipUpdated={handleMembershipUpdated}
-            />
+            <TribesList tribes={tribes} user={user} onMembershipUpdated={handleMembershipUpdated} />
           </div>
         </div>
 
@@ -59,5 +55,5 @@ export default function CirclesPage({ user, onMembershipUpdated }) {
 
 CirclesPage.propTypes = {
   user: PropTypes.object,
-  onMembershipUpdated: PropTypes.func.isRequired,
+  onMembershipUpdated: PropTypes.func.isRequired
 };

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Avatar from '@/modules/users/client/components/Avatar.component';
 
 const Container = styled.div.attrs({
-  className: 'panel panel-default',
+  className: 'panel panel-default'
 })`
   margin: 0;
   overflow: hidden;
@@ -37,5 +37,5 @@ export default function UserSummary({ user }) {
 }
 
 UserSummary.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };

@@ -27,7 +27,7 @@ export default function Welcome() {
           <h2>{t('Hey, welcome!')}</h2>
           <p className="lead">
             {t(
-              'Being able to rely on strangers, on communities, on trust, are values that are worth preserving.',
+              'Being able to rely on strangers, on communities, on trust, are values that are worth preserving.'
             )}{' '}
             {t('Go travel & spread the word!')}
             <br />

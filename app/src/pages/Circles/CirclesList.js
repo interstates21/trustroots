@@ -32,13 +32,9 @@ const Item = styled.li`
 export default function CirclesList({ tribes, user, onMembershipUpdated }) {
   return (
     <List>
-      {tribes.map(tribe => (
+      {tribes.map((tribe) => (
         <Item key={tribe._id}>
-          <Tribe
-            tribe={tribe}
-            user={user}
-            onMembershipUpdated={onMembershipUpdated}
-          />
+          <Tribe tribe={tribe} user={user} onMembershipUpdated={onMembershipUpdated} />
         </Item>
       ))}
       <Item>
@@ -51,5 +47,5 @@ export default function CirclesList({ tribes, user, onMembershipUpdated }) {
 CirclesList.propTypes = {
   tribes: PropTypes.array.isRequired,
   user: PropTypes.object,
-  onMembershipUpdated: PropTypes.func.isRequired,
+  onMembershipUpdated: PropTypes.func.isRequired
 };

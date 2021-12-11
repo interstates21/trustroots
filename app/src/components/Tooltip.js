@@ -38,5 +38,5 @@ HoverTooltip.propTypes = {
   children: PropTypes.node.isRequired,
   tooltip: PropTypes.string.isRequired,
   placement: PropTypes.string,
-  hidden: PropTypes.bool,
+  hidden: PropTypes.bool
 };

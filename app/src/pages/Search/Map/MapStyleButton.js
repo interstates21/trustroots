@@ -12,12 +12,12 @@ export default function MapStyleButton({
   label,
   onClick,
   selectedStyle,
-  styleName,
+  styleName
 }) {
   return (
     <button
       className={classnames('btn', 'btn-default', {
-        'is-active': selectedStyle === styleName,
+        'is-active': selectedStyle === styleName
       })}
       disabled={disabled}
       onClick={onClick}
@@ -34,7 +34,6 @@ MapStyleButton.propTypes = {
   iconStyle: PropTypes.string,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  selectedStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-    .isRequired,
-  styleName: PropTypes.string.isRequired,
+  selectedStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.string]).isRequired,
+  styleName: PropTypes.string.isRequired
 };

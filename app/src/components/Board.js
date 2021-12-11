@@ -12,9 +12,7 @@ import { selectPhoto } from '../services/photos.service';
  * @returns {string} the provided name or randomly picked name from array
  */
 function selectName(names) {
-  return Array.isArray(names)
-    ? names[Math.floor(Math.random() * names.length)]
-    : names;
+  return Array.isArray(names) ? names[Math.floor(Math.random() * names.length)] : names;
 }
 
 /**
@@ -64,23 +62,16 @@ export default function Board({
     addedClasses.push('small-screen-bad-background');
   }
   return (
-    <section
-      style={{ ...style }}
-      className={classNames(addedClasses, className)}
-      {...rest}
-    >
+    <section style={{ ...style }} className={classNames(addedClasses, className)} {...rest}>
       {children}
     </section>
   );
 }
 
 Board.propTypes = {
-  names: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]).isRequired,
+  names: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
   ignoreBackgroundOnSmallScreen: PropTypes.bool,
   style: PropTypes.object,
   className: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node
 };

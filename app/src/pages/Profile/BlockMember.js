@@ -5,7 +5,6 @@ import * as api from '../api/block.api';
 import Icon from '../../components/Icon';
 
 export default function BlockMember({ username, isBlocked, className }) {
-
   function refreshUser() {
     // Refresh the page to reset global `window.app.user`
     // Once we have global state handler and whole user profile is in React, we can remove this.
@@ -15,7 +14,7 @@ export default function BlockMember({ username, isBlocked, className }) {
   // Unblock member
   async function handleUnBlockMember(username) {
     const confirmation = window.confirm(
-      "Are you sure you want to unblock them? They will be able to see your profile and message you again.Are you sure you want to unblock them? They will be able to see your profile and messaage you again."
+      'Are you sure you want to unblock them? They will be able to see your profile and message you again.Are you sure you want to unblock them? They will be able to see your profile and messaage you again.'
     );
 
     if (confirmation) {
@@ -25,7 +24,7 @@ export default function BlockMember({ username, isBlocked, className }) {
         refreshUser();
       } else {
         window.alert(
-          "Could not unblock this member.\n\nPlease ensure you are connected to internet and try again."
+          'Could not unblock this member.\n\nPlease ensure you are connected to internet and try again.'
         );
       }
     }
@@ -34,7 +33,7 @@ export default function BlockMember({ username, isBlocked, className }) {
   // Block member
   async function handleBlockMember(username) {
     const confirmation = window.confirm(
-      "Are you sure you want to block them? They will not be able to see or message you."
+      'Are you sure you want to block them? They will not be able to see or message you.'
     );
 
     if (confirmation) {
@@ -44,7 +43,7 @@ export default function BlockMember({ username, isBlocked, className }) {
         refreshUser();
       } else {
         alert(
-            "Could not block this member.\n\nPlease ensure you are connected to internet and try again."
+          'Could not block this member.\n\nPlease ensure you are connected to internet and try again.'
         );
       }
     }
@@ -78,5 +77,5 @@ export default function BlockMember({ username, isBlocked, className }) {
 BlockMember.propTypes = {
   isBlocked: PropTypes.bool,
   className: PropTypes.string,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 };

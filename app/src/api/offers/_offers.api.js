@@ -8,7 +8,7 @@ import axios from 'axios';
 export async function getOffers(userId, types) {
   try {
     const { data } = await axios.get(`api/offers-by/${userId}`, {
-      params: { types },
+      params: { types }
     });
     return data;
   } catch (e) {

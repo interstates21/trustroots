@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Board from '../../components/Board';
 
 export default function CirclesHeader({ isLoggedIn }) {
-//   const { t } = useTranslation('circles');
+  //   const { t } = useTranslation('circles');
 
   return (
     <Board names="tribes-1" className="tribes-header">
@@ -34,5 +34,5 @@ export default function CirclesHeader({ isLoggedIn }) {
 }
 
 CirclesHeader.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired
 };

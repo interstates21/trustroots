@@ -13,7 +13,7 @@ export default function DownloadProfile({ username, userId }) {
           <div className="col-xs-12 col-sm-5">
             <p className="text-muted">
               {t(
-                'Your data is yours. We are committed to making it easy for you to get all of your data into, and out of, Trustroots at any time.',
+                'Your data is yours. We are committed to making it easy for you to get all of your data into, and out of, Trustroots at any time.'
               )}
             </p>
           </div>
@@ -65,5 +65,5 @@ export default function DownloadProfile({ username, userId }) {
 
 DownloadProfile.propTypes = {
   userId: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 };
