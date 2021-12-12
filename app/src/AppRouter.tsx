@@ -9,8 +9,7 @@ const Router = () => {
   return (
     <Routes>
       <Route element={<HomeLayout />}>
-        {/* <Route index element={< />} /> */}
-        <Route path="search" element={<SearchPage />} />
+        <Route path="/" element={<SearchPage />} />
         <Route path="profile/:userId" element={<Profile />} />
         <Route path="circles" element={<CirclesPage />} />
       </Route>

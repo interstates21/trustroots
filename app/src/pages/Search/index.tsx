@@ -4,7 +4,6 @@ import Map from './Map';
 const Search: FC = () => {
   return (
     <>
-      <div> I am alive! </div>
       <Map
         onOfferClose={() => {}}
         onOfferOpen={() => {}}
