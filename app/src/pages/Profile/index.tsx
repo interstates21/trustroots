@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import AboutMe from './AboutMe';
 import Activate from './Activate';
 import Avatar from './Avatar';
-import BlockedMemberBanner from './BlockedMemberBanner';
+import BlockMember from './BlockMember';
+import BottomNavigationSmall from './BottomNavigationSmall';
+import DownloadProfile from './DownloadProfile';
+import ConfirmEmailNotification from './ConfirmEmailNotification';
 import AvatarNameMobile from './AvatarNameMobile';
+import HostingAndMeetPanel from './HostingAndMeetPanel';
 import { getUser } from '../../api/users/users.api';
 
 interface Props {}
@@ -24,7 +28,11 @@ const Profile = (props: Props) => {
       {<Activate />}
       {user && <Avatar user={user} size={512} link={false} />}
       {user && <AvatarNameMobile profile={user} />}
-      {user && <BlockedMemberBanner username={user} />}
+      {user && <BlockMember username={user.username} />}
+      {user && <BottomNavigationSmall username={user.username} />}
+      {user && <ConfirmEmailNotification />}
+      {user && <HostingAndMeetPanel />}
+      {user && <DownloadProfile userId={user._id} username={user.username} />}
     </div>
   );
 };

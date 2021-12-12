@@ -1,6 +1,5 @@
 // External dependencies
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 // Internal dependencies
@@ -14,22 +13,19 @@ import { getGender } from '@/modules/core/client/utils/user_info';
 import LanguageList from './LanguageList';
 
 export default function ProfileViewBasics({ profile }) {
-  const { t } = useTranslation(['users']);
+  const getBirthdate = (birthdate) => new Date(birthdate).toString();
 
-  const getBirthdate = (birthdate) =>
-    t('{{birthdate, age}} years.', { birthdate: new Date(birthdate) });
+  const getReplyRate = (replyRate) => 'Reply rate ' + replyRate.toString() + '.';
 
-  const getReplyRate = (replyRate) => t('Reply rate {{replyRate}}.', { replyRate });
+  const getReplyTime = (replyTime) => 'Replies within ' + replyTime.toString();
 
-  const getReplyTime = (replyTime) => t('Replies within {{replyTime, fromNow}}.', { replyTime });
-
-  const getMemberSince = (created) => t('Member since {{date, ll}}', { date: new Date(created) });
+  const getMemberSince = (created) => 'Member since' + new Date(created).toString();
 
   const getSeenOnline = (seen) => {
     if (seen) {
-      return t('Online {{ date, fromNow }}', { date: new Date(seen) });
+      return 'Online ' + new Date(seen).toString();
     }
-    return t('Online long ago');
+    return 'Online long ago';
   };
 
   /*
@@ -69,10 +65,7 @@ export default function ProfileViewBasics({ profile }) {
   const renderLocationLiving = (locationLiving) => (
     <div className="profile-sidebar-section">
       <i className="icon-fw icon-building text-muted" />
-      {/* @TODO remove ns (issue #1368) */}
-      <Trans t={t} ns="users">
         Lives in <a href={`/search?location=${locationLiving}`}>{{ locationLiving }}</a>
-      </Trans>
     </div>
   );
 
@@ -80,15 +73,13 @@ export default function ProfileViewBasics({ profile }) {
     <div className="profile-sidebar-section">
       <i className="icon-fw icon-home text-muted"></i>
       {/* @TODO remove ns (issue #1368) */}
-      <Trans t={t} ns="users">
-        From <a href={`/search?location=${locationFrom}`}>{{ locationFrom }}</a>
-      </Trans>
+      From <a href={`/search?location=${locationFrom}`}>{{ locationFrom }}</a>
     </div>
   );
 
   const renderLanguages = (languages) => (
     <div className="profile-sidebar-section">
-      <h4>{t('Languages')}</h4>
+      <h4>Languages</h4>
       <LanguageList className="list-unstyled" languages={languages} />
     </div>
   );
@@ -96,7 +87,7 @@ export default function ProfileViewBasics({ profile }) {
   const renderSocialNetworks = (profile) => (
     <div className="profile-sidebar-section">
       <h4 id="profile-networks" aria-label="Member in other networks">
-        {t('Elsewhere')}
+        Elsewhere
       </h4>
       <ul className="social-profiles list-unstyled" aria-describedby="profile-networks">
         {/*
@@ -176,8 +167,8 @@ export default function ProfileViewBasics({ profile }) {
         <div className="profile-sidebar-section">
           ✨{' '}
           <a href="/team">
-            {profile.isVolunteer && t('Trustroots volunteer')}
-            {profile.isVolunteerAlumni && t('Trustroots volunteer alumni')}
+            {profile.isVolunteer && 'Trustroots volunteer'}
+            {profile.isVolunteerAlumni && 'Trustroots volunteer alumni'}
           </a>
         </div>
       )}

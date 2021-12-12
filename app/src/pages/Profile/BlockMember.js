@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import * as api from '../api/block.api';
+import * as api from '../../api/users/block.api';
+
 import Icon from '../../components/Icon';
 
 export default function BlockMember({ username, isBlocked, className }) {
