@@ -9,7 +9,7 @@ export default function Activate() {
           <em>Sorry, you need to first activate your profile by confirming your email.</em>
         </p>
         <p>
-          If you didn&apos;t receive the message, check your spam folder or resend it via
+          If you didn&apos;t receive the message, check your spam folder or resend it via{' '}
           <a href="/profile/edit/account">email settings</a>.
         </p>
         <p>
