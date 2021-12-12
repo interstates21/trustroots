@@ -1,0 +1,26 @@
+[
+    {
+        "gender": "non-binary",
+        "avatarSource": "gravatar",
+        "avatarUploaded": false,
+        "_id": "5ecf8aa6566b8d6f9799074e",
+        "username": "chagai95",
+        "displayName": "Chagai Friedlander",
+        "emailHash": "a51a5d23f4dadbee7dd3a15f8d1bb204",
+        "updated": "2021-11-27T07:07:00.724Z",
+        "locationFrom": "Citizen of the world",
+        "locationLiving": "Bern, Switzerland",
+        "score": 0.75
+    },
+    {
+        "gender": "",
+        "avatarSource": "gravatar",
+        "avatarUploaded": false,
+        "_id": "5f3277d4ef8d084cbc27d36b",
+        "username": "chagai95germany",
+        "displayName": "Chagai Friedlander",
+        "emailHash": "a8037596db51df08d2c1741606e6e2e4",
+        "updated": "2020-08-11T10:50:42.652Z",
+        "score": 0.75
+    }
+]

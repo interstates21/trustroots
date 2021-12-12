@@ -1,0 +1,36 @@
+{
+    "_id": "61b5e4ad0902bf7dd8b5308f",
+    "created": "2021-12-12T12:01:49.986Z",
+    "public": false,
+    "userFrom": {
+        "_id": "5b2d72681e63fe3613811bfe",
+        "emailHash": "3c81d3f9b6bdd5c78c35399c832b65f8",
+        "displayName": "Alex Kupin",
+        "username": "interstates21",
+        "avatarUploaded": true,
+        "avatarSource": "local",
+        "created": "2018-06-22T22:04:24.025Z",
+        "gender": "",
+        "updated": "2021-12-01T10:54:27.888Z"
+    },
+    "userTo": {
+        "_id": "5ecf8aa6566b8d6f9799074e",
+        "gender": "non-binary",
+        "avatarSource": "gravatar",
+        "avatarUploaded": false,
+        "username": "chagai95",
+        "created": "2020-05-28T09:55:50.725Z",
+        "displayName": "Chagai Friedlander",
+        "emailHash": "a51a5d23f4dadbee7dd3a15f8d1bb204",
+        "updated": "2021-11-27T07:07:00.724Z",
+        "additionalProvidersData": {}
+    },
+    "feedbackPublic": "The best person ✨",
+    "interactions": {
+        "guest": true,
+        "host": false,
+        "met": false
+    },
+    "recommend": "yes",
+    "response": null
+}
