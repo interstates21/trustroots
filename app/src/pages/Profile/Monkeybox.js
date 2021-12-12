@@ -13,7 +13,7 @@ function TribesInCommon({ user, otherUser }) {
 
   const [tribesInCommon, setTribesInCommon] = useState([]);
 
-  useEffect(() => {
+          useEffect(() => {
     // user will have a filled out tribe details, otherUser won't...
     const byId = keyBy(
       user.member.map((membership) => membership.tribe),

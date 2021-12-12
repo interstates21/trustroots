@@ -7,7 +7,6 @@ import { plainTextLength } from '../../utils/filters';
 import ReadMorePanel from '../../components/ReadMorePanel';
 
 export default function AboutMe({ profile, isSelf, profileMinimumLength }) {
-  console.log(profile);
   return (
     <>
       <section className="panel panel-default">
