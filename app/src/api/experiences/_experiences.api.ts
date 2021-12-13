@@ -64,6 +64,7 @@ export async function report(user, message) {
 }
 
 /**
+/**
  * API request: get count of experiences
  *
  * @param {string} userTo - id of the user with whom the experiences were shared

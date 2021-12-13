@@ -24,5 +24,5 @@ export default function Badge({ children, withNotification }) {
 
 Badge.propTypes = {
   children: PropTypes.node.isRequired,
-  withNotification: PropTypes.bool,
+  withNotification: PropTypes.bool
 };
