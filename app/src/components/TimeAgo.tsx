@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const REFRESH_INTERVAL = 10000; // 10s
@@ -40,5 +40,5 @@ export default function TimeAgo({ date }) {
 }
 
 TimeAgo.propTypes = {
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.instanceOf(Date).isRequired
 };

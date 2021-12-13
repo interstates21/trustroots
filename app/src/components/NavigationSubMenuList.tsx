@@ -1,6 +1,5 @@
 // External dependencies
 import PropTypes from 'prop-types';
-import React from 'react';
 
 export default function NavigationSubMenuList({ list }) {
   return (
@@ -19,5 +18,5 @@ export default function NavigationSubMenuList({ list }) {
 }
 
 NavigationSubMenuList.propTypes = {
-  list: PropTypes.array.isRequired,
+  list: PropTypes.array.isRequired
 };

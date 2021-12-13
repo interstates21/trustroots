@@ -1,9 +1,15 @@
 // External dependencies
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { FC } from 'react';
 
-export default function Icon({ className, icon, fixedWidth = false, size }) {
+export type IconSize = 'lg' | '2x' | '3x' | '4x' | '5x';
+
+const Icon: FC<{
+  className: string;
+  icon: string;
+  fixedWidth?: boolean;
+  size: IconSize;
+}> = ({ className, icon, fixedWidth = false, size }) => {
   return (
     <i
       className={classnames('icon', `icon-${icon}`, className, {
@@ -16,11 +22,6 @@ export default function Icon({ className, icon, fixedWidth = false, size }) {
       })}
     />
   );
-}
-
-Icon.propTypes = {
-  className: PropTypes.string,
-  fixedWidth: PropTypes.bool,
-  icon: PropTypes.string.isRequired,
-  size: PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x'])
 };
+
+export default Icon;

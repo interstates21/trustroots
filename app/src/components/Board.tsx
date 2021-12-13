@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import isArray from 'lodash/isArray';
@@ -22,14 +22,22 @@ function selectName(names) {
  * @TODO implement primary, inset, error and maybe other attributes, which are currently board classes
  *  and which could become attributes <Board primary inset error names="bokeh" />
  */
-export default function Board({
+const Board: FC<
+  {
+    names: string | string[];
+    ignoreBackgroundOnSmallScreen?: boolean;
+    style?: React.CSSProperties;
+    children?: React.ReactNode;
+    className?: string;
+  } & HTMLAttributes<HTMLDivElement>
+> = ({
   names = 'bokeh',
   ignoreBackgroundOnSmallScreen = false,
   style = null,
   children,
   className,
   ...rest
-}) {
+}) => {
   const [photo, setPhoto] = useState(null);
 
   useEffect(() => {
@@ -50,7 +58,7 @@ export default function Board({
     // return () => {
     //   $broadcast('photoCreditsRemoved', photoObject);
     // };
-  }, [isArray(names) ? names.join(' ') : names]);
+  }, [isArray(names) ? (names as string[]).join(' ') : names]);
 
   if (photo) {
     style
@@ -66,12 +74,6 @@ export default function Board({
       {children}
     </section>
   );
-}
-
-Board.propTypes = {
-  names: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
-  ignoreBackgroundOnSmallScreen: PropTypes.bool,
-  style: PropTypes.object,
-  className: PropTypes.string,
-  children: PropTypes.node
 };
+
+export default Board;

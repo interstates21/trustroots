@@ -1,6 +1,6 @@
 // External dependencies
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Internal dependencies
 import { plainText, plainTextLength } from '../utils/filters';
@@ -33,7 +33,6 @@ export default function ReadMorePanel({ content, id }) {
         aria-expanded="false"
         className="panel-more-fade"
         onClick={() => setShowMore(true)}
-        type="button"
       >
         Read more…
       </div>

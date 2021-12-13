@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import MediumEditor from 'react-medium-editor';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
@@ -44,7 +43,7 @@ const baseOptions = {
       'ontouchend',
       'ontouchcancel',
       'onload',
-      'onscroll',
+      'onscroll'
     ],
     // list of element tag names to remove during
     // paste when `cleanPastedHTML` is `true`
@@ -84,7 +83,7 @@ const baseOptions = {
       'figure',
       'picture',
       'figcaption',
-      'noscript',
+      'noscript'
     ],
     //  list of element tag names to unwrap (remove the element tag but retain
     // its child elements) during paste when `cleanPastedHTML` is `true`
@@ -126,38 +125,38 @@ const baseOptions = {
       'nav',
       'main',
       'div',
-      'span',
-    ],
+      'span'
+    ]
   },
   // Toolbar buttons which appear when highlighting text
   toolbar: {
     buttons: [
       {
         name: 'bold',
-        contentDefault: '<span class="icon-bold"></span>',
+        contentDefault: '<span class="icon-bold"></span>'
       },
       {
         name: 'italic',
-        contentDefault: '<span class="icon-italic"></span>',
+        contentDefault: '<span class="icon-italic"></span>'
       },
       {
         name: 'underline',
-        contentDefault: '<span class="icon-underline"></span>',
+        contentDefault: '<span class="icon-underline"></span>'
       },
       {
         name: 'anchor',
-        contentDefault: '<span class="icon-link"></span>',
+        contentDefault: '<span class="icon-link"></span>'
       },
       {
         name: 'quote',
-        contentDefault: '<span class="icon-quote"></span>',
+        contentDefault: '<span class="icon-quote"></span>'
       },
       {
         name: 'unorderedlist',
-        contentDefault: '<span class="icon-list"></span>',
-      },
-    ],
-  },
+        contentDefault: '<span class="icon-list"></span>'
+      }
+    ]
+  }
 };
 
 // medium-editor can give us a <br> at the end that we don't want
@@ -165,19 +164,13 @@ function removeTrailingBr(value) {
   return value.replace(/<br><\/p>$/, '</p>');
 }
 
-export default function TrEditor({
-  id,
-  onChange,
-  onCtrlEnter,
-  placeholder,
-  text,
-}) {
-  const ref = React.createRef();
+export default function TrEditor({ id, onChange, onCtrlEnter, placeholder, text }) {
+  const ref = React.createRef<any>();
   const { t } = useTranslation('core');
 
   useEffect(() => {
     const { medium } = ref.current;
-    const onEnter = event => event.ctrlKey && onCtrlEnter(event);
+    const onEnter = (event) => event.ctrlKey && onCtrlEnter(event);
     medium.subscribe('editableKeydownEnter', onEnter);
     return () => {
       // the onCtrlEnter that gets passed through will change quite a lot as it
@@ -192,23 +185,23 @@ export default function TrEditor({
     // https://github.com/yabwe/medium-editor#placeholder-options
     placeholder: {
       hideOnClick: true,
-      text: placeholder ? placeholder : t('Type your text'),
+      text: placeholder ? placeholder : t('Type your text')
     },
-    ...baseOptions,
+    ...baseOptions
   };
 
   const editorProps = { id, text, options, className: 'tr-editor' };
   return (
     <MediumEditor
       ref={ref}
-      onChange={value => onChange(removeTrailingBr(value))}
+      onChange={(value) => onChange(removeTrailingBr(value))}
       {...editorProps}
     />
   );
 }
 
 TrEditor.defaultProps = {
-  onCtrlEnter: () => {},
+  onCtrlEnter: () => {}
 };
 
 TrEditor.propTypes = {
@@ -216,5 +209,5 @@ TrEditor.propTypes = {
   onChange: PropTypes.func.isRequired,
   onCtrlEnter: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 };

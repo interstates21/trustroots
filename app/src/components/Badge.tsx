@@ -1,6 +1,5 @@
 // External dependencies
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const Dot = styled.div`
@@ -13,16 +12,16 @@ const Dot = styled.div`
   width: 7px;
 `;
 
-export default function Badge({ children, withNotification }) {
+const Badge: FC<{ children: React.ReactNode; withNotification?: boolean }> = ({
+  children,
+  withNotification
+}) => {
   return (
     <span className="badge">
       {children}
       {withNotification && <Dot />}
     </span>
   );
-}
-
-Badge.propTypes = {
-  children: PropTypes.node.isRequired,
-  withNotification: PropTypes.bool
 };
+
+export default Badge;

@@ -38,5 +38,5 @@ export default function SuccessMessage({ children, cta, title }) {
 SuccessMessage.propTypes = {
   children: PropTypes.node,
   cta: PropTypes.node,
-  title: PropTypes.string,
+  title: PropTypes.string
 };

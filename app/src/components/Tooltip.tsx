@@ -28,7 +28,7 @@ export default function HoverTooltip({
     </Tooltip>
   );
   return (
-    <OverlayTrigger placement={placement} overlay={tooltipComponent}>
+    <OverlayTrigger placement={placement as any} overlay={tooltipComponent}>
       {children}
     </OverlayTrigger>
   );

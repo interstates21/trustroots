@@ -1,10 +1,10 @@
 // External dependencies
-import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
+import useTranslation from '../temp/useTranslation';
 
 // Internal dependencies
-import LanguageSwitch from './LanguageSwitch';
+// import LanguageSwitch from './LanguageSwitch';
 
 export default function NavigationLoggedOut({ currentPath }) {
   const { t } = useTranslation('core');
@@ -18,9 +18,7 @@ export default function NavigationLoggedOut({ currentPath }) {
       >
         {/* a span for centering the main header content */}
         <span className="flex-side"></span>
-        <span className="header-welcome-text hidden-xs">
-          {t('New to Trustroots?')}
-        </span>
+        <span className="header-welcome-text hidden-xs">{t('New to Trustroots?')}</span>
         <a href="/signup" className="btn btn-lg btn-default">
           {t('Join')}
         </a>
@@ -36,14 +34,11 @@ export default function NavigationLoggedOut({ currentPath }) {
             {t('Read more')}
           </a>
         )}
-        <div className="flex-side language-switch">
-          <LanguageSwitch buttonStyle="inverse" />
-        </div>
       </nav>
     </div>
   );
 }
 
 NavigationLoggedOut.propTypes = {
-  currentPath: PropTypes.string.isRequired,
+  currentPath: PropTypes.string.isRequired
 };

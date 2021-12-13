@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
-import { $on } from '@/modules/core/client/services/angular-compat';
+import { FC, useEffect, useState } from 'react';
 import omit from 'lodash/omit';
+import useTranslation from '../temp/useTranslation';
 
 /**
  * Board Credits component Print out credits for photos used at the page.
@@ -10,28 +8,29 @@ import omit from 'lodash/omit';
  *
  * @param {object} photos - object containing photo objects accessible by their keys
  */
-export default function BoardCredits({ photoCredits: initialPhotoCredits }) {
+const BoardCredits: FC<{
+  photoCredits: Record<string, any>;
+  initialPhotoCredits: Record<string, any>;
+}> = ({ photoCredits: initialPhotoCredits }) => {
   const { t } = useTranslation('messages');
 
   const [photoCredits, setPhotoCredits] = useState(initialPhotoCredits);
 
-  useEffect(
-    () =>
-      $on('photoCreditsUpdated', (scope, photo) =>
-        setPhotoCredits({ ...photoCredits, ...photo }),
-      ),
-    [],
-  );
+  // useEffect(
+  //   () =>
+  //     $on('photoCreditsUpdated', (scope, photo) => setPhotoCredits({ ...photoCredits, ...photo })),
+  //   []
+  // );
 
-  useEffect(
-    () =>
-      $on('photoCreditsRemoved', (scope, photo) =>
-        setPhotoCredits(omit(photoCredits, Object.keys(photo))),
-      ),
-    [],
-  );
+  // useEffect(
+  //   () =>
+  //     $on('photoCreditsRemoved', (scope, photo) =>
+  //       setPhotoCredits(omit(photoCredits, Object.keys(photo)))
+  //     ),
+  //   []
+  // );
 
-  const credits = Object.keys(photoCredits).map(key => {
+  const credits = Object.keys(photoCredits).map((key) => {
     return { key, ...photoCredits[key] };
   });
 
@@ -68,8 +67,6 @@ export default function BoardCredits({ photoCredits: initialPhotoCredits }) {
       </span>
     </small>
   );
-}
-
-BoardCredits.propTypes = {
-  photoCredits: PropTypes.object,
 };
+
+export default BoardCredits;

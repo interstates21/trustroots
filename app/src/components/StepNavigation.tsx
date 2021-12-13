@@ -1,8 +1,8 @@
-import React from 'react';
+import { FC, HtmlHTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 import classnames from 'classnames';
 import Tooltip from './Tooltip';
+import useTranslation from '../temp/useTranslation';
 
 /**
  * StepNavigation can contain three different buttons: Back, Next, Submit we can go through.
@@ -21,7 +21,9 @@ import Tooltip from './Tooltip';
  * @param {function} onSubmit - method executed on clicking Submit
  */
 
-const BackButton = ({ small, ...props }) => {
+type ButtonProps = { small?: boolean } & HtmlHTMLAttributes<HTMLButtonElement>;
+
+const BackButton: FC<ButtonProps> = ({ small, ...props }) => {
   const { t } = useTranslation('core');
   return (
     <button
@@ -31,7 +33,7 @@ const BackButton = ({ small, ...props }) => {
         'btn-lg': small,
         'btn-primary': small,
         'btn-action': !small,
-        'btn-link': !small,
+        'btn-link': !small
       })}
       aria-label={t('Previous section')}
       {...props}
@@ -43,7 +45,7 @@ const BackButton = ({ small, ...props }) => {
 };
 BackButton.propTypes = { small: PropTypes.bool };
 
-const NextButton = ({ small, ...props }) => {
+const NextButton: FC<ButtonProps> = ({ small, ...props }) => {
   const { t } = useTranslation('core');
 
   return (
@@ -53,7 +55,7 @@ const NextButton = ({ small, ...props }) => {
         btn: true,
         'btn-lg': small,
         'btn-action': !small,
-        'btn-primary': true,
+        'btn-primary': true
       })}
       aria-label={t('Next section')}
       {...props}
@@ -65,7 +67,7 @@ const NextButton = ({ small, ...props }) => {
 };
 NextButton.propTypes = { small: PropTypes.bool };
 
-const SubmitButton = ({ small, ...props }) => {
+const SubmitButton: FC<ButtonProps> = ({ small, ...props }) => {
   const { t } = useTranslation('core');
   return (
     <button
@@ -74,7 +76,7 @@ const SubmitButton = ({ small, ...props }) => {
         btn: true,
         'btn-lg': small,
         'btn-action': !small,
-        'btn-primary': true,
+        'btn-primary': true
       })}
       aria-label={t('Finish editing and save')}
       {...props}
@@ -93,7 +95,7 @@ export default function StepNavigation({
   disabledReason = '',
   onBack,
   onNext,
-  onSubmit,
+  onSubmit
 }) {
   /**
    * We'll reuse the buttons and tooltip defined below
@@ -108,7 +110,7 @@ export default function StepNavigation({
     tooltip: disabledReason,
     id: 'tooltip-disabled-button',
     hidden: !(disabled && disabledReason),
-    placement: 'top',
+    placement: 'top'
   };
 
   const showBackButton = currentStep > 0; // not the first step
@@ -132,11 +134,7 @@ export default function StepNavigation({
       </div>
       <nav className="navbar navbar-default navbar-fixed-bottom visible-xs-block">
         <div className="container">
-          <ul
-            className="nav navbar-nav nav-justified"
-            role="toolbar"
-            aria-label="Offer actions"
-          >
+          <ul className="nav navbar-nav nav-justified" role="toolbar" aria-label="Offer actions">
             {showBackButton && (
               <li>
                 <BackButton {...backProps} small />
@@ -170,5 +168,5 @@ StepNavigation.propTypes = {
   disabledReason: PropTypes.string,
   onBack: PropTypes.func.isRequired,
   onNext: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
