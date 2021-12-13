@@ -4,8 +4,6 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '@/config/client/i18n';
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 export default function BottomNavigationSmall({ username, isSelf, contactCount }) {
@@ -13,22 +11,20 @@ export default function BottomNavigationSmall({ username, isSelf, contactCount }
   // when we have a router in place
   const [active, setActive] = useState(window.location.pathname.split('/')[3] || 'about');
 
-  const { t } = useTranslation('users');
-
   const tabs = [
     {
       key: 'overview',
-      label: t('Overview'),
+      label: 'Overview',
       link: `/profile/${username}/overview`
     },
     {
       key: 'about',
-      label: t('About'),
+      label: 'About',
       link: `/profile/${username}`
     },
     {
       key: 'accommodation',
-      label: t('Hosting'),
+      label: 'Hosting',
       link: `/profile/${username}/accommodation`
     }
   ];
@@ -37,7 +33,7 @@ export default function BottomNavigationSmall({ username, isSelf, contactCount }
   if (contactCount > 0 || isSelf) {
     tabs.push({
       key: 'contacts',
-      label: t('Contacts'),
+      label: 'Contacts',
       link: `/profile/${username}/contacts`,
       count: contactCount
     });

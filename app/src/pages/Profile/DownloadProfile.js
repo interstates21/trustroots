@@ -1,20 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 export default function DownloadProfile({ username, userId }) {
-  const { t } = useTranslation('users');
-
   return (
     <div className="panel panel-default" id="download">
-      <div className="panel-heading">{t('Download your data')}</div>
+      <div className="panel-heading">Download your data</div>
       <div className="panel-body">
         <div className="row">
           <div className="col-xs-12 col-sm-5">
             <p className="text-muted">
-              {t(
-                'Your data is yours. We are committed to making it easy for you to get all of your data into, and out of, Trustroots at any time.'
-              )}
+              Your data is yours. We are committed to making it easy for you to get all of your data
+              into, and out of, Trustroots at any time.
             </p>
           </div>
           <div className="ccol-xs-12 col-sm-7">
@@ -22,36 +18,36 @@ export default function DownloadProfile({ username, userId }) {
               <li>
                 <a
                   className="btn btn-link btn-sm"
-                  href={`/api/users/${username}`}
+                  // href={`/api/users/${username}`} FIXME
                   target="_top"
                   type="application/json"
                   download="profile.json"
                 >
-                  {t('Profile')}
+                  Profile
                 </a>
                 <small className="text-muted">(json)</small>
               </li>
               <li>
                 <a
                   className="btn btn-link btn-sm"
-                  href={`/api/contacts/${userId}`}
+                  // href={`/api/contacts/${userId}`}
                   target="_top"
                   type="application/json"
                   download="contacts.json"
                 >
-                  {t('Contacts')}
+                  Contacts
                 </a>
                 <small className="text-muted">(json)</small>
               </li>
               <li>
                 <a
                   className="btn btn-link btn-sm"
-                  href={`/api/offers-by/${userId}`}
+                  // href={`/api/offers-by/${userId}`}
                   target="_top"
                   type="application/json"
                   download="offers.json"
                 >
-                  {t('Hosting offer')}
+                  Hosting offer
                 </a>
                 <small className="text-muted">(json)</small>
               </li>
