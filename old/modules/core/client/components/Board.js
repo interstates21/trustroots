@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import isArray from 'lodash/isArray';
 
 import { selectPhoto } from '../services/photos.service';
-import { $broadcast } from '@/modules/core/client/services/angular-compat';
+// import { $broadcast } from '@/modules/core/client/services/angular-compat';
 
 /**
  * @param {string[]|string} names - array of names or a single name

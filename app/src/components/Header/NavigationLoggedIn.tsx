@@ -9,7 +9,7 @@
 // import SubMenuList from './NavigationSubMenuList';
 
 import { FC } from 'react';
-import { User } from '../api/offers/types';
+import { User } from '../../api/offers/types';
 
 type Props = {
   currentPath: string;

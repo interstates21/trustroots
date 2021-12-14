@@ -1,45 +1,66 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import NavigationLoggedIn from '../NavigationLoggedIn';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import { Avatar, Box, Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import colors from '../../styles/constants';
+import useTranslation from '../../temp/useTranslation';
+import Logo from './Logo';
 import userData from '../../api/users/user.json';
-import NavigationLoggedOut from '../NavigationLoggedOut';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Community', 'Messages', 'Search'];
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
-  return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            TRUSTROOTS
-          </Typography>
+  const { t } = useTranslation('core');
 
-          {userData?.username ? (
-            <NavigationLoggedIn onSignout={() => {}} user={userData} currentPath={'/all'} />
-          ) : (
-            <NavigationLoggedOut currentPath={'/all'} />
-          )}
-        </Toolbar>
-      </Container>
-    </AppBar>
+  return (
+    <div>
+      <Box bgColor={colors.primaryGreen} w="100%" p={4} color="white" display="flex">
+        <Logo />
+        <Menu>
+          <MenuButton
+            // as={Button}
+            color="white"
+            // rightIcon={<ChevronDownIcon />}
+            variant="ghost"
+            className="hidden-xs cursor-pointer"
+            id="support-dropdown"
+            ml={4}
+            mr={4}
+          >
+            {t('Support')}
+          </MenuButton>
+          <MenuList color="black">
+            <MenuItem href="/faq">{t('Frequently Asked Questions')}</MenuItem>
+            <MenuItem href="/support">{t('Contact us')}</MenuItem>
+          </MenuList>
+        </Menu>
+        {pages.map((e) => (
+          <>
+            <Button colorScheme="white" variant="link" mr={4}>
+              {e}
+            </Button>
+          </>
+        ))}
+
+        <Menu>
+          <MenuButton
+            // as={Button}
+            color="white"
+            // rightIcon={<ChevronDownIcon />}
+            variant="ghost"
+            className="hidden-xs cursor-pointer"
+            id="support-dropdown"
+            ml={4}
+            mr={4}
+          >
+            <Avatar src={userData.avatarSource} name={userData.displayName} size="smgit " />
+          </MenuButton>
+          <MenuList color="black">
+            <MenuItem href="/faq">{t('Frequently Asked Questions')}</MenuItem>
+            <MenuItem href="/support">{t('Contact us')}</MenuItem>
+          </MenuList>
+        </Menu>
+      </Box>
+    </div>
   );
 };
 export default ResponsiveAppBar;

@@ -1,7 +1,7 @@
 // External dependencies
 import PropTypes from 'prop-types';
 import React from 'react';
-import useTranslation from '../temp/useTranslation';
+import useTranslation from '../../temp/useTranslation';
 
 // Internal dependencies
 // import LanguageSwitch from './LanguageSwitch';
