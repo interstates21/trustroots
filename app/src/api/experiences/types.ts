@@ -23,7 +23,7 @@ export type User = {
   username: string;
   avatarUploaded: boolean;
   avatarSource: string;
-  created: string;
+  // created: string;
   gender: string;
   updated: string;
   additionalProvidersData?: any; // FIXTYPE

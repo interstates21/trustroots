@@ -79,6 +79,9 @@ const ResponsiveAppBar = () => {
               _hover={{
                 opacity: 0.8
               }}
+              _active={{
+                opacity: 0.8
+              }}
             >
               <Avatar
                 src={userData.avatarSource}
