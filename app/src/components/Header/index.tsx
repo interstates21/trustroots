@@ -20,7 +20,16 @@ import Logo from './Logo';
 import userData from '../../api/users/user.json';
 import styles from './Header.module.scss';
 
-const pages = ['Community', 'Messages'];
+const pages = [
+  {
+    label: 'Circles',
+    path: '/circles'
+  },
+  {
+    label: 'Messages',
+    path: '/messages'
+  }
+];
 
 const ResponsiveAppBar = () => {
   const { t } = useTranslation('core');
@@ -37,7 +46,7 @@ const ResponsiveAppBar = () => {
               <InputLeftElement pointerEvents="none">
                 <Search2Icon color="gray.300" />
               </InputLeftElement>
-              <Input type="tel" placeholder="Going to" />
+              <Input type="tel" placeholder="Find place" />
             </InputGroup>
           </Stack>
         </Box>
@@ -61,13 +70,16 @@ const ResponsiveAppBar = () => {
           {pages.map((e) => (
             <>
               <Button
+                as={'a'}
+                href={e.path}
+                key={e.label}
                 color="white"
                 colorScheme="whiteAlpha"
                 variant="ghost"
                 mr={4}
                 className={styles.navLink}
               >
-                {e}
+                {e.label}
               </Button>
             </>
           ))}
