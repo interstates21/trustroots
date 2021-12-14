@@ -1,11 +1,23 @@
-import { ChevronDownIcon } from '@chakra-ui/icons';
-import { Avatar, Box, Button, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { ChevronDownIcon, Search2Icon, SearchIcon } from '@chakra-ui/icons';
+import {
+  Avatar,
+  Box,
+  Button,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Stack
+} from '@chakra-ui/react';
 import colors from '../../styles/constants';
 import useTranslation from '../../temp/useTranslation';
 import Logo from './Logo';
 import userData from '../../api/users/user.json';
 
-const pages = ['Community', 'Messages', 'Search'];
+const pages = ['Community', 'Messages'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -41,6 +53,15 @@ const ResponsiveAppBar = () => {
           </>
         ))}
 
+        <Stack spacing={4}>
+          <InputGroup variant="filled" colorScheme="teal">
+            <InputLeftElement pointerEvents="none">
+              <Search2Icon color="gray.300" />
+            </InputLeftElement>
+            <Input type="tel" placeholder="Going to" />
+          </InputGroup>
+        </Stack>
+
         <Menu>
           <MenuButton
             // as={Button}
@@ -52,7 +73,7 @@ const ResponsiveAppBar = () => {
             ml={4}
             mr={4}
           >
-            <Avatar src={userData.avatarSource} name={userData.displayName} size="smgit " />
+            <Avatar src={userData.avatarSource} name={userData.displayName} size="sm" />
           </MenuButton>
           <MenuList color="black">
             <MenuItem href="/faq">{t('Frequently Asked Questions')}</MenuItem>
