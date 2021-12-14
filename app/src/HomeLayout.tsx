@@ -5,7 +5,9 @@ const HomeLayout: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <Outlet />
+      <div style={{ paddingTop: 60, height: '100%' }}>
+        <Outlet />
+      </div>
     </div>
   );
 };
