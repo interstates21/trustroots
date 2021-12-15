@@ -1,13 +1,12 @@
 // External dependencies
 import { NavigationControl } from 'react-map-gl';
-import React from 'react';
+import styles from './Map.module.scss';
 
 // Internal dependencies
-import './map-navigation-control.less';
 
 export default function MapNavigationControl() {
   return (
-    <div className="map-navigation-control-container">
+    <div className={styles.navControl}>
       <NavigationControl showCompass={false} zoomInLabel={'Zoom in'} zoomOutLabel={'Zoom out'} />
     </div>
   );

@@ -22,7 +22,6 @@ import {
 } from './lib/constants';
 import { DEFAULT_LOCATION } from './lib/constants';
 import MapNavigationControl from './MapNavigationControl';
-import MapScaleControl from './MapScaleControl';
 import SearchMapNoContent from './SearchMapNoContent';
 
 import { ensureValidLat, ensureValidLng } from './utils';
@@ -470,7 +469,6 @@ const SearchMap: FC<Props> = ({
       }
     >
       {(viewport?.zoom || 0) <= MIN_ZOOM && <SearchMapNoContent />}
-      <MapScaleControl />
       <MapNavigationControl />
       <Source
         buffer={512}
