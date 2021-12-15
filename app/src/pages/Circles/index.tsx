@@ -44,7 +44,7 @@ const CirclesPage: FC = () => {
   return (
     <Box>
       <CirclesHeader isLoggedIn={true} />
-      <Box width="100%" display="flex" flexWrap="wrap">
+      <Box width="100%" display="flex" flexWrap="wrap" mt={2}>
         {circles.map((circle) => (
           <Circle key={circle._id} circle={circle} onChange={handleChange}></Circle>
         ))}

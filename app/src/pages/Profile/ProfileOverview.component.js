@@ -7,7 +7,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Avatar from './Avatar';
-import ProfileViewBasics from './ProfileViewBasics';
+import ProfileViewBasics from './BasicData';
 import { Modal } from 'react-bootstrap';
 
 export default function ProfileOverview({ profile }) {

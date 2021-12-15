@@ -24,15 +24,15 @@ const Profile = (props: Props) => {
 
   return (
     <div className="col-md-6">
-      {user && <AboutMe profile={user} isSelf={true} profileMinimumLength={5} />}
-      {<Activate />}
       {user && <Avatar user={user} size={512} link={false} />}
-      {user && <AvatarNameMobile profile={user} />}
+      {/* {user && <AboutMe profile={user} isSelf={true} profileMinimumLength={5} />} */}
+      {/* {<Activate />} */}
+      {/* {user && <AvatarNameMobile profile={user} />}
       {user && <BlockMember username={user.username} />}
       {user && <BottomNavigationSmall username={user.username} />}
       {user && <ConfirmEmailNotification />}
       {user && <HostingAndMeetPanel />}
-      {user && <DownloadProfile userId={user._id} username={user.username} />}
+      {user && <DownloadProfile userId={user._id} username={user.username} />} */}
     </div>
   );
 };

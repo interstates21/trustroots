@@ -36,13 +36,10 @@ const Circle: FC<Props> = ({ circle, onChange }) => {
   return (
     <LinkBox
       as={'a'}
-      width={'31%'}
+      width={'31.4%'} // Max width to fix 3 cards
       height={300}
       href={`/circles/${circle.slug}`}
       m={3}
-      _hover={{
-        opacity: 0.9
-      }}
     >
       <Box
         width={'100%'}
