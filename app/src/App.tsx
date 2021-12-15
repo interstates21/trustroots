@@ -4,13 +4,11 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 const App = () => {
   return (
-    <div className="App">
-      <ChakraProvider>
-        <BrowserRouter>
-          <AppRouter />
-        </BrowserRouter>
-      </ChakraProvider>
-    </div>
+    <ChakraProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </ChakraProvider>
   );
 };
 

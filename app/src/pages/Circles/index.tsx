@@ -42,14 +42,14 @@ const CirclesPage: FC = () => {
   const handleChange = useCallback((_circle: Tribe) => {}, []);
 
   return (
-    <div>
+    <Box>
       <CirclesHeader isLoggedIn={true} />
       <Box width="100%" display="flex" flexWrap="wrap">
         {circles.map((circle) => (
           <Circle key={circle._id} circle={circle} onChange={handleChange}></Circle>
         ))}
       </Box>
-    </div>
+    </Box>
   );
 };
 
