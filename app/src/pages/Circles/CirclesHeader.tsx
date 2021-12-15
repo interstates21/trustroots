@@ -1,14 +1,29 @@
-import React from 'react';
+import { FC } from 'react';
 import PropTypes from 'prop-types';
 // import { useTranslation } from 'react-i18next';
 import Board from '../../components/Board';
+import styles from './Circles.module.scss';
+import { Box, Heading } from '@chakra-ui/react';
 
-export default function CirclesHeader({ isLoggedIn }) {
+const CirclesHeader: FC<{ isLoggedIn?: boolean }> = ({ isLoggedIn }) => {
   //   const { t } = useTranslation('circles');
 
   return (
-    <Board names="tribes-1" className="tribes-header">
-      <div className="container">
+    <Board names="tribes-1" className={styles.circlesHeader}>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        height="100%"
+        color="white"
+        flexDirection="column"
+      >
+        <Heading size="2xl" mb="3">
+          Discover <em>circles</em>
+        </Heading>
+        <Heading size="lg">Find people like you on Trustroots!</Heading>
+      </Box>
+      {/* <div className="container">
         <div className="row">
           <div className="col-xs-12 text-center">
             <br />
@@ -28,11 +43,9 @@ export default function CirclesHeader({ isLoggedIn }) {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </Board>
   );
-}
-
-CirclesHeader.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
 };
+
+export default CirclesHeader;

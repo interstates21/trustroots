@@ -27,7 +27,13 @@ const OfferDrawer: FC<{ onClose: () => void; offer?: Offer | null }> = ({ onClos
   console.log('user =', user);
   return (
     <>
-      <Drawer onClose={onClose} isOpen={Boolean(offer)} placement="left" isFullHeight={false}>
+      <Drawer
+        onClose={onClose}
+        isOpen={Boolean(offer)}
+        placement="left"
+        isFullHeight={false}
+        size="md"
+      >
         {offer && (
           <DrawerContent className={styles.offerContainer}>
             <DrawerHeader>
