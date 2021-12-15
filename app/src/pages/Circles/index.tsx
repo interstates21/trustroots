@@ -5,6 +5,11 @@ import { Tribe } from '../../api/offers/types';
 import Circle from './Circle';
 import CirclesHeader from './CirclesHeader';
 
+// TODO:
+// join and leave circles api
+// leave circle confirmation
+// contact us to add circle
+
 const CirclesPage: FC = () => {
   const [circles, setCircles] = useState([]);
 
