@@ -1,61 +1,79 @@
-import React from 'react';
+import { FC, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 // import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
+import styles from './Circles.module.scss';
+
 import JoinButton from './JoinButton';
 
 import { getCircleBackgroundStyle } from './utils';
+import { Tribe } from '../../api/offers/types';
+import { Box, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
 
-const Container = styled.div.attrs({
-  className: 'panel tribe tribe-image'
-})`
-  // the following styles should have high specificity
-  // https://www.styled-components.com/docs/faqs#how-can-i-override-styles-with-higher-specificity
-  &&& {
-    position: relative;
-    ${({ tribe }) => getCircleBackgroundStyle(tribe, '742x496')}
-  }
-`;
+// const Container = styled.div.attrs({
+//   className: 'panel circle circle-image'
+// })`
+//   // the following styles should have high specificity
+//   // https://www.styled-components.com/docs/faqs#how-can-i-override-styles-with-higher-specificity
+//   &&& {
+//     position: relative;
+//     ${({ circle }) => getCircleBackgroundStyle(circle, '742x496')}
+//   }
+// `;
 
-export default function Circle({ tribe, user, onMembershipUpdated }) {
-  //   const { t } = useTranslation('circles');
-
-  //   const countInfo =
-  //     tribe.count === 0
-  //       ? t('No members yet')
-  //       : t('{{count, number}} members', { count: tribe.count });
-  const countInfo = tribe.count === 0 ? 'No members yet' : `${tribe.count} members`;
-
-  return (
-    <Container tribe={tribe}>
-      <a href={`/circles/${tribe.slug}`} className="tribe-link">
-        {tribe.new && (
-          <span className="tribe-new" aria-hidden={true}>
-            <span className="label label-primary">{'New circle!'}</span>
-          </span>
-        )}
-        <div
-          className={classnames('tribe-content', {
-            'is-image': tribe.image
-          })}
-        >
-          <h3 className="font-brand-light tribe-label">{tribe.label}</h3>
-          <span className="tribe-meta">{countInfo}</span>
-        </div>
-      </a>
-      <div className="tribe-actions">
-        {tribe && (
-          <JoinButton tribe={tribe} user={user} icon={true} onUpdated={onMembershipUpdated} />
-        )}
-      </div>
-    </Container>
-  );
+interface Props {
+  circle: Tribe;
+  onChange: (circle: Tribe) => void;
 }
 
-Circle.propTypes = {
-  tribe: PropTypes.object.isRequired,
-  user: PropTypes.object,
-  onMembershipUpdated: PropTypes.func.isRequired
+const Circle: FC<Props> = ({ circle, onChange }) => {
+  const countInfo = circle.count === 0 ? 'No members yet' : `${circle.count} members`;
+
+  const bg = useMemo(() => getCircleBackgroundStyle(circle, '742x496'), [circle]);
+
+  return (
+    <LinkBox
+      as={'a'}
+      width={'31%'}
+      height={300}
+      href={`/circles/${circle.slug}`}
+      m={3}
+      _hover={{
+        opacity: 0.9
+      }}
+    >
+      <Box
+        width={'100%'}
+        height={'100%'}
+        style={bg}
+        backgroundSize="cover"
+        display="flex"
+        alignItems="flex-start"
+        justifyContent="flex-end"
+        flexDirection="column"
+        p={3}
+        color="white"
+        borderRadius={2}
+        boxShadow="sm"
+      >
+        {/* {circle?.new && (
+          <span className="circle-new" aria-hidden={true}>
+            <span className="label label-primary">{'New circle!'}</span>
+          </span>
+        )} */}
+        <Box mb={3} textShadow="outline">
+          <Heading size="md">{circle.label}</Heading>
+          <Text>{countInfo}</Text>
+        </Box>
+
+        <Box>
+          <JoinButton onClick={() => onChange(circle)} />
+        </Box>
+      </Box>
+    </LinkBox>
+  );
 };
+
+export default Circle;

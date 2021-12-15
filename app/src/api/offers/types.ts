@@ -65,4 +65,5 @@ export type Tribe = {
   created: string;
   attribution: string;
   attribution_url: string;
+  new?: boolean;
 };
