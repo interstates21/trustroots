@@ -1,12 +1,18 @@
 .mapBar {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 10vw;
     max-width: 80vw;
-    max-height: 50px;
+    height: 60px;
+    padding: 10px !important;
     z-index: 3;
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
     flex-wrap: nowrap;
+}
+
+.filterButton {
+    margin-right: 5px;
+    margin-left: 5px;
 }
