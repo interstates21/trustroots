@@ -44,7 +44,7 @@ import {
   LocationBoundsParams,
   WebMercatorViewportOptions
 } from './lib/types';
-import { Offer } from '../../../api/offers/types';
+import { Offer } from '../../../types/offer';
 
 interface Props {
   filters: string;

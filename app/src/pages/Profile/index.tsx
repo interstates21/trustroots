@@ -27,7 +27,7 @@ const Profile = (props: Props) => {
   return (
     <Box display="flex">
       <BasicData />
-      <AboutMe profile={user} />
+      {/* <AboutMe profile={user} /> */}
       {/* {user && <Avatar user={user} size={512} link={false} />} */}
       {/* {user && <AboutMe profile={user} isSelf={true} profileMinimumLength={5} />} */}
       {/* {<Activate />} */}

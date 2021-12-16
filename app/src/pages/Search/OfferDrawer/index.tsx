@@ -13,7 +13,7 @@ import {
   Divider
 } from '@chakra-ui/react';
 import { FC, useState, useMemo } from 'react';
-import { Offer } from '../../../api/offers/types';
+import { Offer } from '../../../types/offer';
 import styles from './OfferDrawer.module.scss';
 import UserCard from './UserCard';
 
@@ -57,7 +57,7 @@ const OfferDrawer: FC<{ onClose: () => void; offer?: Offer | null }> = ({ onClos
               </Box>
             </DrawerHeader>
             <DrawerBody>
-              <Text>{user.tagline}</Text>
+              {/* <Text>{user?.tagline}</Text> */}
               <Text>Hosting: Available 🌳</Text>
               <Text>{offerDescription}</Text>
               <Heading size="md">Circles in common</Heading>

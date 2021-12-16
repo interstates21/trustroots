@@ -9,12 +9,12 @@
 // import SubMenuList from './NavigationSubMenuList';
 
 import { FC } from 'react';
-import { User } from '../../api/offers/types';
+import { FullUser } from '../../types/user';
 
 type Props = {
   currentPath: string;
   onSignout: () => void;
-  user: User;
+  user: FullUser;
 };
 // export default function NavigationLoggedIn({ currentPath, onSignout, user }) {
 //   const { t } = useTranslation('core');

@@ -1,6 +1,6 @@
 import { Box, useDisclosure } from '@chakra-ui/react';
 import { FC, useState } from 'react';
-import { Offer } from '../../api/offers/types';
+import { Offer } from '../../types/offer';
 import Map from './Map';
 import MapBar from './MapBar';
 import OfferDrawer from './OfferDrawer';

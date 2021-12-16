@@ -9,8 +9,8 @@ import styles from './Circles.module.scss';
 import JoinButton from './JoinButton';
 
 import { getCircleBackgroundStyle } from './utils';
-import { Tribe } from '../../api/offers/types';
 import { Box, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
+import { Circle } from '../../types/circle';
 
 // const Container = styled.div.attrs({
 //   className: 'panel circle circle-image'
@@ -24,11 +24,11 @@ import { Box, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react';
 // `;
 
 interface Props {
-  circle: Tribe;
-  onChange: (circle: Tribe) => void;
+  circle: Circle;
+  onChange: (circle: Circle) => void;
 }
 
-const Circle: FC<Props> = ({ circle, onChange }) => {
+const CircleComponent: FC<Props> = ({ circle, onChange }) => {
   const countInfo = circle.count === 0 ? 'No members yet' : `${circle.count} members`;
 
   const bg = useMemo(() => getCircleBackgroundStyle(circle, '742x496'), [circle]);
@@ -73,4 +73,4 @@ const Circle: FC<Props> = ({ circle, onChange }) => {
   );
 };
 
-export default Circle;
+export default CircleComponent;

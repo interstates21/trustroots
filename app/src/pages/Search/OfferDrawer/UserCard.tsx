@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import styles from './OfferDrawer.module.scss';
-import { User } from '../../../api/experiences/types';
 import { Avatar } from '@chakra-ui/react';
+import { PartialUser } from '../../../types/user';
 
 interface UserCardProps {
-  user: User;
+  user: PartialUser;
 }
 
 const UserCard: FC<UserCardProps> = ({ user }) => {

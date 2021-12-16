@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import { FC, useCallback, useEffect, useState } from 'react';
 import * as api from '../../api/circles/circles.api';
-import { Tribe } from '../../api/offers/types';
-import Circle from './Circle';
+import { Circle } from '../../types/circle';
+import CircleComponent from './Circle';
 import CirclesHeader from './CirclesHeader';
 
 // TODO:
@@ -39,14 +39,18 @@ const CirclesPage: FC = () => {
     fetchData();
   }, []);
 
-  const handleChange = useCallback((_circle: Tribe) => {}, []);
+  const handleChange = useCallback((_circle: Circle) => {}, []);
 
   return (
     <Box>
       <CirclesHeader isLoggedIn={true} />
       <Box width="100%" display="flex" flexWrap="wrap" mt={2}>
         {circles.map((circle) => (
-          <Circle key={circle._id} circle={circle} onChange={handleChange}></Circle>
+          <CircleComponent
+            key={circle._id}
+            circle={circle}
+            onChange={handleChange}
+          ></CircleComponent>
         ))}
       </Box>
     </Box>

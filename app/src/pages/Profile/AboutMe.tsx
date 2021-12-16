@@ -16,7 +16,7 @@ const AboutMe: FC<AboutMeProps> = ({ profile }) => {
         )} */}
 
       {/* If no description, show deep thoughts... */}
-      {!profile.description && (
+      {!profile?.description && (
         <blockquote
           aria-label="Member has not written description about themself."
           className="profile-quote"
