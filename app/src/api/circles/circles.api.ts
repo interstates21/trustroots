@@ -1,5 +1,5 @@
+import { Circle } from '../../types/circle';
 import circles from './data.json';
-import { Circle } from './types';
 
 export async function join(tribeId) {}
 

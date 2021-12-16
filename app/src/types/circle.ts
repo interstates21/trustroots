@@ -10,5 +10,10 @@ export type Circle = {
   attribution: string;
   attribution_url: string;
   new: boolean;
-  id: string;
+  id?: string; // ??
+};
+
+export type CircleMember = {
+  tribe: Circle;
+  since: string;
 };

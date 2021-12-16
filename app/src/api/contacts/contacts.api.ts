@@ -1,4 +1,4 @@
-import type { Contact } from './types';
+import { Contact } from '../../types/contact';
 import data from './data.json';
 
 export async function removeContact(_contactId) {}

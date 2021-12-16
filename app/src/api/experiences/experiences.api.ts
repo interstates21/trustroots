@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
+import { Experience } from '../../types/experience';
 import data from './data.json';
-import { Experience } from './types';
 
 /**
  * API request: create an experience

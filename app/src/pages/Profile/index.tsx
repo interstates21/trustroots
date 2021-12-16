@@ -9,6 +9,8 @@ import ConfirmEmailNotification from './ConfirmEmailNotification';
 import AvatarNameMobile from './AvatarNameMobile';
 import HostingAndMeetPanel from './HostingAndMeetPanel';
 import { getUser } from '../../api/users/users.api';
+import BasicData from './BasicData';
+import { Box } from '@chakra-ui/react';
 
 interface Props {}
 
@@ -23,8 +25,10 @@ const Profile = (props: Props) => {
   }, []);
 
   return (
-    <div className="col-md-6">
-      {user && <Avatar user={user} size={512} link={false} />}
+    <Box display="flex">
+      <BasicData />
+      <AboutMe profile={user} />
+      {/* {user && <Avatar user={user} size={512} link={false} />} */}
       {/* {user && <AboutMe profile={user} isSelf={true} profileMinimumLength={5} />} */}
       {/* {<Activate />} */}
       {/* {user && <AvatarNameMobile profile={user} />}
@@ -33,7 +37,7 @@ const Profile = (props: Props) => {
       {user && <ConfirmEmailNotification />}
       {user && <HostingAndMeetPanel />}
       {user && <DownloadProfile userId={user._id} username={user.username} />} */}
-    </div>
+    </Box>
   );
 };
 

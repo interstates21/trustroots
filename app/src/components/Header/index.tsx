@@ -42,7 +42,14 @@ const ResponsiveAppBar = () => {
             <Logo /> <span style={{ marginLeft: 3 }}>v2</span>
           </Box>
           <Stack spacing={4}>
-            <InputGroup variant="filled" colorScheme="teal">
+            <InputGroup
+              variant="filled"
+              colorScheme="teal"
+              _focus={{
+                color: 'white',
+                opacity: 1
+              }}
+            >
               <InputLeftElement pointerEvents="none">
                 <Search2Icon color="gray.300" />
               </InputLeftElement>

@@ -1,6 +1,6 @@
 import offersData from './offers.json';
 import offerData from './offer.json';
-import { Offer, OffersData } from './types';
+import { Offer, OffersData } from '../../types/offer';
 
 /**
  * API request: read user's offers
