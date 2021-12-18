@@ -36,7 +36,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <div>
-      <Box bgColor={colors.primaryGreen} color="white" className={styles.header}>
+      <Box bgColor="teal.400" color="white" className={styles.header}>
         <Box display="flex" alignItems="center" justifyContent="center">
           <Box display="flex" alignItems="flex-end" mr="6">
             <Logo /> <span style={{ marginLeft: 3 }}>v2</span>
