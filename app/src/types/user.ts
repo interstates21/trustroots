@@ -48,6 +48,7 @@ export type PartialUser = {
   _id: string;
   emailHash: string;
   displayName: string;
+  tagline?: string;
   username: string;
   avatarUploaded: boolean;
   avatarSource: string;

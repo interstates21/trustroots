@@ -1,6 +1,12 @@
 .offerContainer {
-    height: calc(100vh - 60px);
-    top: 60px !important;
-    // box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
-    border-right: 1px rgba(42, 87, 42, 0.185) solid;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 0;
+    top: 0;
+    position: absolute;
+    box-sizing: border-box;
+    z-index: 3;
+    background-color: white;
+    transition: width 0.3s ease-out;
 }
