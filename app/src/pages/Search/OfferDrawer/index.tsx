@@ -75,6 +75,7 @@ const OfferDrawer: FC<{ onClose: () => void; offer?: Offer | null }> = ({ onClos
               </Box>
               {/* <Text>{user?.tagline}</Text> */}
               <Text>Hosting: Available 🌳</Text>
+              {/* FIXME!!! Ignore dangerous tags like script */}
               <Text dangerouslySetInnerHTML={{ __html: offer.description }}></Text>
               {/*
               TODO!
