@@ -17,7 +17,6 @@ import { Offer } from '../../../types/offer';
 import styles from './OfferDrawer.module.scss';
 import UserCard from './UserCard';
 
-import userData from '../../../api/users/user.json';
 import { removeHTMLTags } from '../../../utils/formatters';
 
 const OfferDrawer: FC<{ onClose: () => void; offer?: Offer | null }> = ({ onClose, offer }) => {
