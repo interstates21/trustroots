@@ -9,8 +9,8 @@ import styles from './SearchPage.module.scss';
 const Search: FC = () => {
   const [offer, setOffer] = useState(null);
 
-  const handleOfferOpen = (offer: Offer) => {
-    setOffer(offer);
+  const handleOfferOpen = (val: Offer) => {
+    setOffer({ ...val });
   };
   const handleOfferClose = () => {
     setOffer(null);
